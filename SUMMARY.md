@@ -13,7 +13,7 @@
   * [密码学52个知识点](cryptography/52_things_cryptography.md)
   * [知识点1-处理器区别](cryptography/things_1.md)
 * P2P通信
-  * [DHT](P2P/README.md)
+  * [DHT](P2P/dht.md)
   * [DHT-Kademlia](P2P/kademlia.md)
 * [存储](db/README.md)
 * [Rust](rust/README.md)

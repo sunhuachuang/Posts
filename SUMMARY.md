@@ -9,10 +9,13 @@
   * [Spectre](consensus/spectre.md)
   * [Phantom](consensus/phantom.md)
   * [Disjoint](consensus/disjoint.md)
-* [密码学](cryptography/README.md)
-  * [密码学52个预备知识](cryptography/52_things_cryptography.md)
-* [DHT](dht/README.md)
-  * [Kademlia](dht/kademlia.md)
+* 密码学
+  * [密码学52个知识点](cryptography/52_things_cryptography.md)
+  * [知识点1-处理器区别](cryptography/things_1.md)
+* P2P通信
+  * [DHT](P2P/README.md)
+  * [DHT-Kademlia](P2P/kademlia.md)
+* [存储](db/README.md)
 * [Rust](rust/README.md)
 * Python
   * [pip 国内镜像的正确使用姿态](python/pip-mirrors.md)

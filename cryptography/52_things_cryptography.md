@@ -30,7 +30,7 @@ By each section we give a reference to places where the definitions can be found
     - an embedded or mobile computer (e.g., a mobile phone or PDA)
     - a laptop- or desktop-class computer.
 
-### 计算机工程（[E]）
+### （中文）计算机工程（[E]）
 1. 以下几点有什么区别？
      - 通用处理器。
      - 带指令集扩展的通用处理器。

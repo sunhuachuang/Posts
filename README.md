@@ -1,0 +1,2 @@
+# Note
+Note -> Knowledge -> Think

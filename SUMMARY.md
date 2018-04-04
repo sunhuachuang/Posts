@@ -13,3 +13,11 @@
 * [DHT](dht/README.md)
   * [Kademlia](dht/kademlia.md)
 * [Rust](rust/README.md)
+* Python
+  * [pip 国内镜像的正确使用姿态](python/pip-mirrors.md)
+  * [selenium + headless Chrome](python/selenium_chrome.md)
+  * [Flask 项目结构的分析](python/flask-dir.md)
+* [Emacs](emacs/README.md)
+  * [在emacs中开发python](emacs/emacs_love_python.md)
+* 杂笔
+  * [论中国传统教育现代化](thinking/nowadays-education-of-classic-book-in-china.md)

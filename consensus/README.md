@@ -1,46 +1,46 @@
-# consensus 共识机制
+## consensus 共识机制
 
-## POW   - bitcoin
+#### POW   - bitcoin
 
-## POS   - peercoin
+#### POS   - peercoin
 
-## DPOS  - eos
+#### DPOS  - eos
 https://steemit.com/dpos/@dantheman/dpos-consensus-algorithm-this-missing-white-paper
 
-## POOL  - fabric/hyperledge 分布式一致性算法 Pasox Raft
+#### POOL  - fabric/hyperledge 分布式一致性算法 Pasox Raft
 
-## DBFT  - (DPOS一种) neo
+#### DBFT  - (DPOS一种) neo
 
-## POI   - 重要性证明 nem
+#### POI   - 重要性证明 nem
 
-## POB: Proof of Burn - 燃烧证明
+#### POB: Proof of Burn - 燃烧证明
 
-## PoC: Proof of Capacity - 容量证明
+#### PoC: Proof of Capacity - 容量证明
 
-## Tendermint: https://github.com/tendermint/tendermint
+#### Tendermint: https://github.com/tendermint/tendermint
 
-## POA: Proof of Authority - 权威证明 https://poa.network/
+#### POA: Proof of Authority - 权威证明 https://poa.network/
 
-## Hashgraph
+#### Hashgraph
 
-## Proof of Activity (hybrid PoW + PoS) - DeCred governenance currency
+#### Proof of Activity (hybrid PoW + PoS) - DeCred governenance currency
 
-## Proof of unique identity
+#### Proof of unique identity
 
-## PoSt: Proof-of-Spacetime: 时空证明 fileCoin
+#### PoSt: Proof-of-Spacetime: 时空证明 fileCoin
 
-## PoRep: Proof-of-Replication: 复制证明 fileCoin
+#### PoRep: Proof-of-Replication: 复制证明 fileCoin
 
-## HoneyBadgerBFT: 一个网络环境无关的Byzantine容错的分布式共识协议, 完全异步的共识协议, 支持封闭网络, 主机数量固定
+#### HoneyBadgerBFT: 一个网络环境无关的Byzantine容错的分布式共识协议, 完全异步的共识协议, 支持封闭网络, 主机数量固定
 https://github.com/amiller/HoneyBadgerBFT
 
-## Notary: 公证人?
+#### Notary: 公证人?
 
-## PBFT 联盟链共识
+#### PBFT 联盟链共识
 
-## SCF 联盟链共识
+#### SCF 联盟链共识
 
-## Ouroboros Cardano的DPos共识算法
+#### Ouroboros Cardano的DPos共识算法
 首先是一些术语及作用的解释：
   -. 在Cardano的运行中，时间被分为 slot
   -. 每个slot只能产生一个块，若这个块有问题，或者应该产出这个块的“矿工”(也就是stakeholder的候选人)不在线，或者产出的块没有广播给大多数人，那么这个slot是当作废弃的，也就是会跳过这个slot的块。
@@ -64,29 +64,29 @@ https://github.com/amiller/HoneyBadgerBFT
 
 https://zhuanlan.zhihu.com/p/33824015
 
-## SPECTRE DAG共识算法
+#### SPECTRE DAG共识算法
 https://docs.wixstatic.com/ugd/242600_bc8db338d74a4cdcbf90a81ab78a7711.pdf
 
-## PHANTOM DAG共识算法
+#### PHANTOM DAG共识算法
 https://docs.wixstatic.com/ugd/242600_92372943016c47ecb2e94b2fc07876d6.pdf
 
 
 
-# 参考资料
+### 参考资料
 
-### Polkadot 波卡链: 解耦共识组件和状态转换组件 https://polkadot.network
+##### Polkadot 波卡链: 解耦共识组件和状态转换组件 https://polkadot.network
 Tangle是个关于共识系统的概念性尝试。不把交易排序再打包到区块中，而是通过串联的共识得出一个全局的一致性状态改变排序，它在很大程度上抛弃了高度结构化的排序想法，而是推出一个有向无环图，后续的有依赖的交易通过明确的指向，来帮助前面的交易达成一致。对于任意的状态改变，这个依赖图就会很快地变得无法处理，然而对于更简单的UTXO模型，立即就变得合理了。因为系统总是松散地连贯，而且交易通常是相互独立的，大规模的全局并发变得非常自然。使用UTXO模型确实可以让Tangle定位成价值转移的货币系统，而并没有其他的更多通用和可扩展的功能。因为没有了全局依赖性，而和其他系统的交互又需要确定性地知道其状态，这种方法就变得不切实际了。
 公证通（Factom）演示了个没有有效性的一致性系统，能够高效地记载数据。由于没有全局状态和其带来扩展性问题，它可以被看做是一个可伸缩的方案。然而前面也提到了，严格上来说它只解决了很少的问题。
 
-### Tendermint Cosmos
+##### Tendermint Cosmos
 实用拜占庭，DPos
 
-### Factom
+##### Factom
 
-### Casper
+##### Casper
 
-### Dfinity BLS签名算法 VRF可验证随机函数算法
+##### Dfinity BLS签名算法 VRF可验证随机函数算法
 https://zhuanlan.zhihu.com/p/28172716
 
-### FLP定理  https://www.cnblogs.com/javaleon/p/3945864.html
-### 分布式系统理论基础 - 一致性、2PC和3PC http://www.cnblogs.com/bangerlee/p/5268485.html
+##### FLP定理  https://www.cnblogs.com/javaleon/p/3945864.html
+##### 分布式系统理论基础 - 一致性、2PC和3PC http://www.cnblogs.com/bangerlee/p/5268485.html

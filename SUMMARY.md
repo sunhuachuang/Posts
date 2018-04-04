@@ -3,6 +3,7 @@
 * [简介](README.md)
 * [区块链](blockchain/README.md)
   * [Dfinity](blockchain/dfinity.md)
+  * [(去)中心化交易所模块](blockchain/exchanges.md)
 * [共识算法](consensus/README.md)
   * [Hashgraph](consensus/hashgraph.md)
   * [Spectre](consensus/spectre.md)

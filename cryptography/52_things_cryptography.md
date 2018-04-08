@@ -37,7 +37,7 @@ By each section we give a reference to places where the definitions can be found
      - 专用处理器（或协处理器）。
      - 一个FPGA。
 - 2 多核处理器和矢量处理器有什么区别？
-- 3 估计...的相对计算和存储能力
+- 3 估计以下设备的相对计算和存储能力
      - 一张智能卡
      - 微控制器（即传感器节点）
      - 嵌入式或移动计算机（例如，移动电话或PDA）

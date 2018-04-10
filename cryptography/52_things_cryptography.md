@@ -52,8 +52,8 @@ By each section we give a reference to places where the definitions can be found
 - 9 What are Shannon's definitions of entropy and information?
 
 ### （中文）理论计算机科学（[F]）
-- 4 复杂类P的含义是什么？
-- 5 复杂类NP是什么意思？
+- 4 复杂度类P含义是什么？
+- 5 复杂度类NP含义是什么？
 - 6 我们如何将NP解释为可以在多项式时间内检验证明的一组定理？
 - 7 随机性如何帮助计算，什么是BPP类？
 - 8 交互如何帮助计算，什么是类IP？

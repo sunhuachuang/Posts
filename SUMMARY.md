@@ -14,6 +14,8 @@
   * [知识点1-处理器区别](cryptography/things_1.md)
   * [知识点2-多核和矢量处理器](cryptography/things_2.md)
   * [知识点3-不同设备的计算和存储能力](cryptography/things_3.md)
+  * [知识点4-复杂度类P](cryptography/things_4.md)
+  * [知识点5-复杂度类NP](cryptography/things_5.md)
 * P2P通信
   * [DHT](P2P/dht.md)
   * [DHT-Kademlia](P2P/kademlia.md)

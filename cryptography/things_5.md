@@ -42,9 +42,9 @@ For example, the expression (A∧B)∨(A∧¬B) is satisfiable, with one valid a
 
 #### Ok, so there are problems in NP. What is interesting about it?
 #### OK，所以NP是有问题的。 有趣的是什么？
-Firstly, we see that P⊆NP since a DTM is an NDTM that just happens not to ever branch (in fact, our first example can actually be solved by a DTM and so is within P). So, the real question is what sort of things can we do in NP that we couldn't do in P? Well, this is the root of the P=?NP millenium problem, which is a major open problem. There are certainly problems that we have found that are known to be in NP that we do not know to be in P, but perhaps future research will show that these are also in P.
+Firstly, we see that P ？= NP since a DTM is an NDTM that just happens not to ever branch (in fact, our first example can actually be solved by a DTM and so is within P). So, the real question is what sort of things can we do in NP that we couldn't do in P? Well, this is the root of the P=?NP millenium problem, which is a major open problem. There are certainly problems that we have found that are known to be in NP that we do not know to be in P, but perhaps future research will show that these are also in P.
 
-首先，我们看到P⊆NP自DTM是一个NDTM，它恰好不会分支（事实上，我们的第一个例子实际上可以通过DTM解决，因此在P内）。所以，真正的问题是我们可以在NP中做什么样的事情，我们在P中无法做到？那么，这是P =？NP千年问题的根源，这是一个重大的开放问题。当然，我们发现存在一些问题，我们发现这些问题存在于NP中，而我们不知道这些问题存在于P中，但是也许未来的研究将显示这些问题也出现在P中。
+首先，我们看到 P ？= NP 自DTM是一个NDTM，它恰好不会分支（事实上，我们的第一个例子实际上可以通过DTM解决，因此在P内）。所以，真正的问题是我们可以在NP中做什么样的事情，我们在P中无法做到？那么，这是P =？NP千年问题的根源，这是一个重大的开放问题。当然，我们发现存在一些问题，我们发现这些问题存在于NP中，而我们不知道这些问题存在于P中，但是也许未来的研究将显示这些问题也出现在P中。
 
 Lots of interesting cryptographic systems (particularly in the public key setting) are secure based on the assumption that a computational problem is "hard", which generally means "at least as hard as any problem in NP". That is, many schemes are based on problems which we think are difficult to solve, and that if you can create an algorithm that solves them you could also use this algorithm to solve lots of other problems that we currently believe to be difficult.
 

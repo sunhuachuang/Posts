@@ -1,6 +1,6 @@
 ### [复杂度类NP](https://bristolcrypto.blogspot.com/2014/11/52-things-number-5-what-is-meant-by.html)
 
-``
+```
 Q5 What is meant by the complexity class NP ?
 Q5 复杂度类NP含义是什么？
 

@@ -18,14 +18,12 @@ This week, we introduce another complexity class:
 本周，我们介绍另一个复杂类：
 - NP 是一种非确定性图灵机在多项式时间内可确定的语言类。
 
-#### What is a Nondeterministic Turing Machine (NDTM)?
-#### 什么是非确定性图灵机（NDTM）？
+#### What is a Nondeterministic Turing Machine (NDTM)? 什么是非确定性图灵机（NDTM）？
 Well, an NDTM is a Turing Machine for which the transition function can have multiple values for the same tape value/state pair (meaning it is not technically a function any more, so the correct thing would be to call it a transition relation). Thus evaluation of an NDTM on any particular input can be thought of as a tree, branching at each point the transition function provides more than one possible value. Now, an NDTM evaluates all of these possible branches at once, and accepts if at least one of these computations halts in the accept state. This definition generalizes from language membership to decision to computational problems in the same way as P did in last weeks blog.
 
 NDTM是一个图灵机，对于它来说，转换函数对于同一个磁带值/状态对可以有多个值（这意味着它在技术上不再是一个函数，所以正确的做法是将其称为转换关系）。 因此，对任何特定输入的NDTM的评估可以被认为是一棵树，在每个点处，分支转换函数提供了多于一个可能的值。 现在，NDTM一次评估所有这些可能的分支，并接受这些计算中至少有一个是否在接受状态下停止。 这个定义从语言成员到决策到计算问题的泛化，就像P在上周的博客中一样。
 
-#### Some Examples of NP problems
-#### NP问题的一些例子
+#### Some Examples of NP problems NP问题的一些例子
 We begin with an easy example: path finding. Given a directed graph (on n vertices) is there a path from vertex A to vertex B. How do we know this is in NP? Well, there is an NDTM that solves it, which basically works by simply trying every route by branching each time there is a junction. If one of these branches (ie one of the trial routes) reaches B, then that branch terminates in the accept state. Any branch that does not reach B within n steps (ie after traversing n edges) terminates in the reject state. Since any path will involve at most n-1 edges, any valid route will be detected, and so this machine correctly decides whether the path exists.
 
 我们从一个简单的例子开始：寻路。 给定一个有向图（在n个顶点上）有一条从顶点A到顶点B的路径。我们怎么知道这是NP？ 那么，有一个NDTM可以解决这个问题，它基本上是通过在每次有分支时通过分支尝试每条路径来工作的。 如果其中一个分支（即其中一条试验路线）达到B，则该分支终止于接受状态。 任何在n步内未达到B的分支（即在遍历n个边之后）终止于拒绝状态。 由于任何路径最多会涉及n-1条边，因此将检测到任何有效的路由，因此此机器会正确判断路径是否存在。
@@ -40,8 +38,7 @@ For example, the expression (A∧B)∨(A∧¬B) is satisfiable, with one valid a
 
 例如，表达式 (A∧B)∨(A∧¬B) 可以满足，一个有效赋值是A = B = True。 请注意，在标准形式中，SAT是一个决策问题：决定是否存在这样的任务就足够了，我们不需要找到它。
 
-#### Ok, so there are problems in NP. What is interesting about it?
-#### OK，所以NP是有问题的。 有趣的是什么？
+#### Ok, so there are problems in NP. What is interesting about it? OK，所以NP是有问题的。 有趣的是什么？
 Firstly, we see that P ？= NP since a DTM is an NDTM that just happens not to ever branch (in fact, our first example can actually be solved by a DTM and so is within P). So, the real question is what sort of things can we do in NP that we couldn't do in P? Well, this is the root of the P=?NP millenium problem, which is a major open problem. There are certainly problems that we have found that are known to be in NP that we do not know to be in P, but perhaps future research will show that these are also in P.
 
 首先，我们看到 P ？= NP 自DTM是一个NDTM，它恰好不会分支（事实上，我们的第一个例子实际上可以通过DTM解决，因此在P内）。所以，真正的问题是我们可以在NP中做什么样的事情，我们在P中无法做到？那么，这是P =？NP千年问题的根源，这是一个重大的开放问题。当然，我们发现存在一些问题，我们发现这些问题存在于NP中，而我们不知道这些问题存在于P中，但是也许未来的研究将显示这些问题也出现在P中。

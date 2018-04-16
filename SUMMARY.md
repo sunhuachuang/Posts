@@ -17,6 +17,7 @@
   * [知识点4-复杂度类P](cryptography/things_4.md)
   * [知识点5-复杂度类NP](cryptography/things_5.md)
   * [知识点6-NP:多项式时间内检验证明的定理](cryptography/things_6.md)
+  * [知识点7-随机性与BPP](cryptography/things_7.md)
 * P2P通信
   * [DHT](P2P/dht.md)
   * [DHT-Kademlia](P2P/kademlia.md)

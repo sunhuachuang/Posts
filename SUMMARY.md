@@ -23,7 +23,7 @@
 * P2P通信
   * [DHT](P2P/dht.md)
   * [DHT-Kademlia](P2P/kademlia.md)
-* [存储](db/README.md)
+* 存储
   * [缓存置换机制](db/cache_replacement_policies.md)
 * 分布式系统
   * [CAP](distributed/cap.md)

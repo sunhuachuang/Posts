@@ -7,7 +7,11 @@ impl Default for Kind {
     fn default() -> Kind { Kind::A }
 }
 
-impl Default for Kind {
+```
+
+##### From
+```
+impl From for Kind {
     fn from() -> Kind { Kind::A }
 }
 

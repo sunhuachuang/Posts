@@ -30,6 +30,7 @@
 * 编程相关
   * [缓存置换机制](programming/cache_replacement_policies.md)
 * [Rust](rust/README.md)
+  * [Trait](rust/trait.md)
 * Python
   * [pip 国内镜像的正确使用姿态](python/pip-mirrors.md)
   * [selenium + headless Chrome](python/selenium_chrome.md)

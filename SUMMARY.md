@@ -28,7 +28,7 @@
   * [CAP](distributed/cap.md)
   * [CRDT](distributed/crdt.md)
 * 编程相关
-  * [缓存置换机制](P2P/cache_replacement_policies.md)
+  * [缓存置换机制](programming/cache_replacement_policies.md)
 * [Rust](rust/README.md)
 * Python
   * [pip 国内镜像的正确使用姿态](python/pip-mirrors.md)

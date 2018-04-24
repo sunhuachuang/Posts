@@ -24,11 +24,10 @@
   * [DHT](P2P/dht.md)
   * [DHT-Kademlia](P2P/kademlia.md)
 * [存储](db/README.md)
+  * [缓存置换机制](db/cache_replacement_policies.md)
 * 分布式系统
   * [CAP](distributed/cap.md)
   * [CRDT](distributed/crdt.md)
-* 编程相关
-  * [缓存置换机制](programming/cache_replacement_policies.md)
 * [Rust](rust/README.md)
   * [Trait](rust/trait.md)
 * Python

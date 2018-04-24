@@ -21,4 +21,5 @@
 6. Solana： 想要做一条高性能区块链的项目 https://github.com/solana-labs/solana
 7. Ristretto Bulletproofs: 零知识证明的实验库 https://github.com/chain/ristretto-bulletproofs
 8. Dalek: 专门研究椭圆加密学的项目 https://github.com/dalek-cryptography
+9. Grin: MimbleWimble协议的实现(比特币扩容方案) https://github.com/mimblewimble/grin
 

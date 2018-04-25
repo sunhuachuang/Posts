@@ -2,7 +2,6 @@
 
 * [简介](README.md)
 * [区块链](blockchain/README.md)
-  * [Dfinity](blockchain/dfinity.md)
   * [(去)中心化交易所模块](blockchain/exchanges.md)
   * [区块链底层开发简介](blockchain/blockchain_dev.md)
 * [共识算法](consensus/README.md)
@@ -11,6 +10,9 @@
   * [Spectre](consensus/spectre.md)
   * [Phantom](consensus/phantom.md)
   * [Disjoint](consensus/disjoint.md)
+  * [Meshcash](consensus/meshcash.md)
+  * [Algorand](consensus/algorand.md)
+  * [Dfinity](consensus/dfinity.md)
 * 密码学
   * [密码学52个知识点](cryptography/52_things_cryptography.md)
   * [知识点1-处理器区别](cryptography/things_1.md)

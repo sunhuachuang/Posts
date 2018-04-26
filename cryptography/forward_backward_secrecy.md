@@ -11,10 +11,12 @@
 
 #### 前向安全性 Forward Secrecy（FS）
 前向安全保证了新加入群组的人无法解密之前的信息。
-强前向安全(Strong Backward Secrecy): 后面进来的人即时知道之前的信息，但是无法解密。
-弱前向安全(Weak Backward Secrecy): 后面进来的人完全不知道之前有过什么信息。
+
+- 强前向安全(Strong Backward Secrecy): 后面进来的人即时知道之前的信息，但是无法解密。
+- 弱前向安全(Weak Backward Secrecy): 后面进来的人完全不知道之前有过什么信息。
 
 #### 后向安全性 Backward Secrecy（BS）
 后向安全保证了新加入群组的人无法解密之后的信息。
-强后向安全(Strong Forward Secrecy): 前面进来的人，虽然能获取信息，但是无法解密。
-弱后向安全(Weak Forward Secrecy): 前面进来的人，无法获知后面发出的信息。
+
+- 强后向安全(Strong Forward Secrecy): 前面进来的人，虽然能获取信息，但是无法解密。
+- 弱后向安全(Weak Forward Secrecy): 前面进来的人，无法获知后面发出的信息。

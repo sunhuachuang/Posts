@@ -16,7 +16,7 @@
 * 密码学
   * [sodium加密库](cryptography/sodium.md)
   * [Curve25519/Ed25519/X25519](cryptography/25519.md)
-  * [前（后）向安全性](forward_backward_secrecy.md)
+  * [前（后）向安全性](cryptography/forward_backward_secrecy.md)
   * [密码学52个知识点](cryptography/52_things_cryptography.md)
   * [知识点1-处理器区别](cryptography/things_1.md)
   * [知识点2-多核和矢量处理器](cryptography/things_2.md)

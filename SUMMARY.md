@@ -4,6 +4,10 @@
 * [区块链](blockchain/README.md)
   * [(去)中心化交易所模块](blockchain/exchanges.md)
   * [区块链底层开发简介](blockchain/blockchain_dev.md)
+  * [攻击-双花(Double-Spead)](blockchain/attack_double_spead.md)
+  * [攻击-女巫(Sybil)](blockchain/attack_sybil.md)
+  * [攻击-日蚀(Eclipse)](blockchain/attack_eclipse.md)
+  * [攻击-定向(Targeted)](blockchain/attack_targeted.md)
 * [共识算法](consensus/README.md)
   * [Hashgraph](consensus/hashgraph.md)
   * [Gossip](consensus/gossip.md)
@@ -13,6 +17,7 @@
   * [Meshcash](consensus/meshcash.md)
   * [Algorand](consensus/algorand.md)
   * [Dfinity](consensus/dfinity.md)
+  * [BFT2F-1/2容错的拜占庭协议](consensus/bft2f.md)
 * 密码学
   * [sodium加密库](cryptography/sodium.md)
   * [Curve25519/Ed25519/X25519](cryptography/25519.md)

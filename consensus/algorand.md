@@ -18,17 +18,88 @@
 强同步与弱同步，强同步可以解决活跃的目标。弱同步结果安全目标。所有用户之间有弱同步的时钟，保证相差不大。
 
 #### 总览和思路
-区块组织形式与比特币类似，使用Gossip协议去传输交易。BA提供了两种共识: final共识与tentative共识。final共识意味着这个区块已经达成了最终的共识，被稳定确认了，后续区块可以接着此区块继续连接下去。tentative共识意味着这个区块，有人能够看到同轮的其他区块。这个区块上的所有交易都处于未确认的状态。Gossip协议来传输新产生的交易。区块提案产生区块生成者们。BA协议确定最终的区块。
+区块组织形式与比特币类似，使用Gossip协议去传输交易。BA提供了两种共识: final共识与tentative共识。final共识意味着这个区块已经达成了最终的共识，被稳定确认了，后续区块可以接着此区块继续连接下去。tentative共识意味着这个区块，有人能够看到同轮的其他区块。这个区块上的所有交易都处于未确认的状态。Gossip协议来传输新产生的交易与区块。区块提案产生区块生成者们。BA协议确定最终的区块。
 
 #### 密码学抽签 Cryptographic Sortition
+VRF函数保证选举的本地执行和不用交互，参数包括（该轮的随机种子，自身的私钥，Weight信息）-> (hash, proof, J)证明信息。首先会确定角色：打包者和委员会成员。十分重要的一点就是需要有余额用于Weight证明。一个用户会被选举上超过一次，所以有了一个参数J，用于记录被选举的次数。也就是有了'sub-user'这个概念。验证的时候，带入公钥，hash等信息，就可以得到J，算出这个用户是否被选中。
+
+其次是种子(seed)生成算法。r轮中的seed是在r-1轮基础上生成的。如果r-1轮没有生效seed, 则通过计算所有打包区块确认这轮的seed。seed为了防止被攻击者影响，会在R轮之后，重新刷新一次，执行一个mod算法。
+
+如何在弱同步的网络中，防止用户执行empty block（上一块区块无效）算法。在计算r轮的时候，所有用户都会去计算r-1-(r mod R)的时间戳，通过对比上次区块的时间戳。
 
 #### 区块提案 Block Proposal
+sortition threshold 抽签阀值, 大于1，测算出来的是26最好。是否意味着每轮打包者的数量应该控制在26左右?
+区块传输的最小化。根据候选区块的优先级传输。没轮的等待时间是一个固定的数。从收到上一轮的区块开始计算时间。
 
 #### BA
+两个实现阶段。一个是在两个候选区块中选择其中一个，另外一个是在有效无效区块中达成一致。这两个动作都是有交互的步骤的。第一阶段包括两个步骤，第二阶段如果最佳候选节点是诚实的，则需要两步，如果不是诚实的则需要11步。在每一步中，委员会成员都会进行投票。当投票结果超过某一个阀值之后，该结果就作为下一步的条件。
+
+主要的步骤。就是确认这个区块是否是最终定型的区块，还是候选区块。为了高效，投票都是针对区块hash进行的，而不是区块内容。如果最终没有得到想要的结果BlockOfHash的结果，就需要与其他用户通信确认。算法形式：
+
+```
+procedure BA*(ctx, round, block): //ctx当前区块链的状态（包括seed, user weight, 最后的确认区块），round轮数，block是得分最高的候选区块
+hblock <- Reduction(ctx, round, H(block))
+hblock* <- BinaryBA*(ctx, round, hblock)
+r <- CountVotes(ctx, round, FINAL, T_final, t_final, x_step)
+if hblock* = r then
+    return FINAL, BlockOfHash(hblock*)
+else
+    return TENTATIVE, BlockOfHash(hblock*)
+
+```
+
+投票机制。委员会成员执行。为了检验这个用户是否是委员会的一员。第一步是发送投票，就是说这个委员会成员被选中了，发送一个自己签名的信息，在信息里面包含一些区块信息，用以绑定内容， 包含自身状态下的最先前的一个区块。
+
+```
+procedire CommiteeVote(ctx, round, setp, t, value):
+role <- ("committee", round, step)
+sorthash, x, j <- Sortition(user.sk, ctx, seed, t, role, ctx.weight[user.pk], ctx.W)
+if j > 0 then
+    Gossip(user.pk, Signed(round, step, sorthash, x, H(ctx.last_block), value))
+
+```
+
+统计投票信息。分为统计投票和处理投票信息。
+
+```
+procedure CountVotes(ctx, round, step, T, t, x):
+start <- Time()
+counts <- {} //hash table, new keys mapped to 0
+voters <- {}
+msgs <- incomingMsgs[round, step].iterator()
+while True do
+    m <- msgs.next()
+    if m = Null then
+        if Time() > start + x then return TIMEOUT
+    else
+        votes, value, sorthash < PorcessMsg(ctx, t, m)
+        if pk in votes or votes = 0 then continue
+        voters += {pk}
+        counts[value] += votes
+        if counts[value] > T * t then
+            return value
+
+procedure ProcessMsg(ctx, t, m):
+pk, signed_m <- m
+if verifySignature(pk, signed_m) != OK then
+    return 0, 0, Null
+round, step, sorthash, x, hprev, value <- signed_m
+if hprev != H(ctx.last_block) then return 0, Null, Null
+votes <- VerifySort(pk, sorthash, x, ctx.seed, t, ("committee, round, step"), ctx.weight[pk], ctx.W)
+return votes, value, sorthash
+
+```
+
+还原步骤。对于这是一个有效区块，还是一个无效（空）区块达成共识。对于区块链的活跃(liveness)是十分重要的部分。
 
 #### Algorand 区块链
 
+
+
 #### VRF应对双花攻击
+
+
+
 
 
 ### 密码抽签 cryptographic sortition

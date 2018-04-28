@@ -90,7 +90,23 @@ return votes, value, sorthash
 
 ```
 
-还原步骤。对于这是一个有效区块，还是一个无效（空）区块达成共识。对于区块链的活跃(liveness)是十分重要的部分。
+还原步骤。对于这是一个有效区块，还是一个无效（空）区块达成共识。对于区块链的活跃(liveness)是十分重要的部分。第一步是对区块hash值进行投票，第二步是判断投票结果是否满足 T * t, 用来确定是否该接受这个区块。
+
+```
+procedure Reduction(ctx, round, hblock):
+CommiteeVote(ctx, round, REDUCTION_ONE, t_step, hblock)
+hblock1 <- CountVotes(ctx, round, REDUCTION_ONE, T_step, t_step, x_block + x_step)
+empty_hash <- H(Empty(round, H(ctx.last_block)))
+if hblock1 = TIMEOUT then
+    CommiteeVote(ctx, round, REDUCTION_TWO, t_step, empty_hash)
+else
+    CommiteeVote(ctx, round, REDUCTION_TWO, t_step, hblock1)
+hblock2 <- CountVotes(ctx, round, REDUCTION_TWO, T_step, t_step, x_step)
+if hblock2 = TIMEOUT then return empty_hash
+else return hblock2
+```
+
+二元共识协议。Binary Agreement.
 
 #### Algorand 区块链
 

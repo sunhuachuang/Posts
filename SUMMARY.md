@@ -37,6 +37,8 @@
   * [DHT-Kademlia](P2P/kademlia.md)
 * 存储
   * [缓存置换机制](db/cache_replacement_policies.md)
+  * [WAL-预写式日志](db/wal.md)
+  * [hdd/ssd-硬盘存储设置差别](db/hdd_ssd.md)
 * 分布式系统
   * [CAP](distributed/cap.md)
   * [CRDT](distributed/crdt.md)

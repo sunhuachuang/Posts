@@ -10,4 +10,4 @@
 - [WinFS](https://en.wikipedia.org/wiki/WinFS): 以NTFS作为底层文件存储系统
 - [DBFS](http://dbfs.sourceforge.net/)： 开源的实现
 
-![DBFS Overview](static/dbfs-overview.png)
+![DBFS Overview](../static/dbfs-overview.png)

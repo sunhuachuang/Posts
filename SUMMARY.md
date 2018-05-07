@@ -20,6 +20,7 @@
   * [PBFT-实用拜占庭协议](consensus/pbft.md)
   * [BFT2F-1/2容错的拜占庭协议](consensus/bft2f.md)
   * [B2MBA-将二元延伸至多值拜占庭协议](consensus/binary-multivalued-BA.md)
+  * [以太坊分片技术](consensus/eth-sharding.md)
 * 密码学
   * [sodium加密库](cryptography/sodium.md)
   * [Curve25519/Ed25519/X25519](cryptography/25519.md)

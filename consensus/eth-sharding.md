@@ -63,3 +63,28 @@ Collation Body
 
 #### 分片方案与现有架构的整合图
 ![Eth_Sharding Architecture](../static/eth_sharding_architecture.png)
+
+
+### Sharding FAQ
+##### 三个简单的实现扩容的方案
+1. 不再使用单一的链结构。但是这样会加多N-因子，导致安全性的下降
+2. 提高区块的大小。但是这种方案将导致很多弱连接的节点下线，最终成为集中式的中心化结局
+3. 联合挖矿。所有的矿工一起挖，共享收益，但是这种方式将导致矿工的成本增加，原理上还是和提高区块大小一样
+
+##### 扩展性的难题
+1. Decentralization（分散化）。任何设备接入并且只都能提供O(c)的资源
+2. Scalability（可扩展性）。能够处理O(n) > O(c)的交易
+3. Security（安全性）。能够抵御O(n)资源的攻击
+
+c指单节点能够提供的有效资源(计算，带宽，存储)，n指整个生态的规模，交易负载，存储状态大小，数字货币价值都与n成正比。
+
+#### What are some moderately simple but only partial ways of solving the scalability problem ? 什么是解决可伸缩性问题的一些中等简单但仅部分的方法？
+早期的分片思想和后来的Zilliqa, Merklix tree都是在使用分片或者碎片技术来解决吞吐量的问题，主要用于解决交易吞吐量的问题，但是没有考虑存储的代价。要全面解决这些问题，还需要解决状态存储，事务执行和广播机制都全面调整。需要深入到P2P层
+
+#### 并没有走分片路线的其他方法？
+1. 用拜占庭协议去改造区块链共识形态: Bitcoin-NG
+2. 使用外部通道和off-chain加速: Lightning Network，Raiden
+3. 使用密码学来改造： Mimblewimble，zk-SNARKs
+
+
+

@@ -24,9 +24,9 @@
   * [以太坊分片技术](consensus/eth-sharding.md)
   * [Zilliqa](consensus/zilliqa.md)
   * [Bitcoin-NG](consensus/bitcoin-ng.md)
-  * [Lightning Network](consensus/lightning-network.md)
-  * [Raiden](consensus/raiden.md)
+  * [Off-Chain](consensus/off-chain.md)
   * [Mimblewimble](consensus/mimblewimble.md)
+  * [Plasma](consensus/plasma.md)
 * 密码学
   * [sodium加密库](cryptography/sodium.md)
   * [Curve25519/Ed25519/X25519](cryptography/25519.md)
@@ -51,6 +51,7 @@
   * [CAP](distributed/cap.md)
   * [CRDT](distributed/crdt.md)
   * [Merklix-Merkle-Radix Tree](distributed/merklix-tree.md)
+  * [分布式系统（概念与设计）的学习摘要](distributed/distributed_system.md)
 * Rust
   * [学习资料](rust/learning.md)
   * [Trait](rust/trait.md)

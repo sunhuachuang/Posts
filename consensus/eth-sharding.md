@@ -79,7 +79,7 @@ Collation Body
 c指单节点能够提供的有效资源(计算，带宽，存储)，n指整个生态的规模，交易负载，存储状态大小，数字货币价值都与n成正比。
 
 #### What are some moderately simple but only partial ways of solving the scalability problem ? 什么是解决可伸缩性问题的一些中等简单但仅部分的方法？
-早期的分片思想和后来的Zilliqa, Merklix tree都是在使用分片或者碎片技术来解决吞吐量的问题，主要用于解决交易吞吐量的问题，但是没有考虑存储的代价。要全面解决这些问题，还需要解决状态存储，事务执行和广播机制都全面调整。需要深入到P2P层
+早期的分片思想和后来的Zilliqa, Merklix tree都是在使用分片或者碎片技术来解决吞吐量的问题，主要用于解决交易吞吐量的问题，但是没有考虑存储的代价。要全面解决这些问题，还需要解决状态存储，事务执行和广播机制都全面调整。需要深入到P2P层。早期的一个分片方案[ELASTICO](https://www.comp.nus.edu.sg/%7Eloiluu/papers/elastico.pdf)。
 
 #### 并没有走分片路线的其他方法？
 1. 用拜占庭协议去改造区块链共识形态: Bitcoin-NG

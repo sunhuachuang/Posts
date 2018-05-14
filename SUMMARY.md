@@ -1,7 +1,7 @@
 # Summary
 
 * [简介](README.md)
-* [区块链](blockchain/README.md)
+* 区块链
   * [区块链底层开发指北](blockchain/blockchain_start.md)
   * [区块链世界浏览器脑洞](blockchain/blockchain_door.md)
   * [(去)中心化交易所模块](blockchain/exchanges.md)
@@ -9,7 +9,7 @@
   * [攻击-女巫(Sybil)](blockchain/attack_sybil.md)
   * [攻击-日蚀(Eclipse)](blockchain/attack_eclipse.md)
   * [攻击-定向(Targeted)](blockchain/attack_targeted.md)
-* [共识算法](consensus/README.md)
+* 共识算法
   * [Hashgraph](consensus/hashgraph.md)
   * [Gossip](consensus/gossip.md)
   * [Spectre](consensus/spectre.md)
@@ -51,13 +51,15 @@
   * [CAP](distributed/cap.md)
   * [CRDT](distributed/crdt.md)
   * [Merklix-Merkle-Radix Tree](distributed/merklix-tree.md)
-* [Rust](rust/README.md)
+* Rust
+  * [学习资料](rust/learning.md)
   * [Trait](rust/trait.md)
 * Python
   * [pip 国内镜像的正确使用姿态](python/pip-mirrors.md)
   * [selenium + headless Chrome](python/selenium_chrome.md)
   * [Flask 项目结构的分析](python/flask-dir.md)
-* [Emacs](emacs/README.md)
+* Emacs
+  * [个人配置](emacs/live.md)
   * [在emacs中开发python](emacs/emacs_love_python.md)
 * 杂笔
   * [论中国传统教育现代化](thinking/nowadays-education-of-classic-book-in-china.md)

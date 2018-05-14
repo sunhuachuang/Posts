@@ -16,14 +16,18 @@
   - 智能合约开发
   - 区块链框架的使用搭配和简单的配置
 
-区块链底层基础开发主要分为四大模块：身份与验证模块（密码学相关），P2P网络和RPC网络交互模块，存储模块，共识模块。
+区块链底层基础开发主要分为四大模块：
+- 身份体系模块（密码学相关）
+- 网络模块(P2P, RPC交互)
+- 存储模块(高性能全量存储，去中心化存储)
+- 共识模块（交易结构和共识算法）
 
 #### 前期预备学习资料
 ##### 比特币系列
 1. 白皮书: [原文](https://bitcoin.org/bitcoin.pdf), [中文](http://www.8btc.com/wiki/bitcoin-a-peer-to-peer-electronic-cash-system)
 2. [源码地址](https://github.com/bitcoin/bitcoin)
 3. Mastering Bitcoin书籍: [原文第二版-好](https://github.com/bitcoinbook/bitcoinbook), [中文](http://book.8btc.com/books/6/masterbitcoin2cn/_book/)
-4. [社区](https://bitcointalk.org/)
+4. [社区讨论](https://bitcointalk.org/)
 
 ##### 以太坊系列
 1. [Ethereum Wiki (whitepaper, yellowpaper)](https://github.com/ethereum/wiki/wiki)
@@ -34,19 +38,39 @@
 
 #### 后期强化底层知识
 ##### 共识算法系列
-1. BFT
-2. PoW
-3. PoS(DPoS)
-4. 密码学相关
+1. BFT-拜占庭容错协议
+1. PoW-工作量证明
+1. PoS(DPoS)-权益证明
+1. 密码学相关-零知识证明
+1. List结构
+1. Tree结构
+1. DAG结构
 
 ##### P2P系列
-
+1. DHT
+1. UDP or TCP
+1. 异步网络通信
+1. 网络模型
+1. RPC接口实现
 
 ##### 存储系列
-
+1. K-V存储结构
+1. 内存型存储
+1. 缓存型存储
+1. 硬盘型存储
+1. 去中心化存储
 
 ##### 密码学系统
+1. 对称加密
+1. 非对称加密
+1. 同态加密
 
+##### 分布式系统
+1. 著名理论
+   - CAP
+   - FLP
+1. 同步时钟与非同步时钟
+1. CRDT账户模型
 
 #### 真实项目源码参考
 

@@ -2,9 +2,9 @@
 
 * [简介](README.md)
 * [区块链](blockchain/README.md)
-  * [(去)中心化交易所模块](blockchain/exchanges.md)
-  * [区块链底层开发简介](blockchain/blockchain_dev.md)
+  * [区块链底层开发指北](blockchain/blockchain_start.md)
   * [区块链世界浏览器脑洞](blockchain/blockchain_door.md)
+  * [(去)中心化交易所模块](blockchain/exchanges.md)
   * [攻击-双花(Double-spending)](blockchain/attack_double_spending.md)
   * [攻击-女巫(Sybil)](blockchain/attack_sybil.md)
   * [攻击-日蚀(Eclipse)](blockchain/attack_eclipse.md)
@@ -22,6 +22,11 @@
   * [BFT2F-1/2容错的拜占庭协议](consensus/bft2f.md)
   * [B2MBA-将二元延伸至多值拜占庭协议](consensus/binary-multivalued-BA.md)
   * [以太坊分片技术](consensus/eth-sharding.md)
+  * [Zilliqa](consensus/zilliqa.md)
+  * [Bitcoin-NG](consensus/bitcoin-ng.md)
+  * [Lightning Network](consensus/lightning-network.md)
+  * [Raiden](consensus/raiden.md)
+  * [Mimblewimble](consensus/mimblewimble.md)
 * 密码学
   * [sodium加密库](cryptography/sodium.md)
   * [Curve25519/Ed25519/X25519](cryptography/25519.md)
@@ -45,6 +50,7 @@
 * 分布式系统
   * [CAP](distributed/cap.md)
   * [CRDT](distributed/crdt.md)
+  * [Merklix-Merkle-Radix Tree](distributed/merklix-tree.md)
 * [Rust](rust/README.md)
   * [Trait](rust/trait.md)
 * Python

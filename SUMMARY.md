@@ -28,6 +28,7 @@
   * [Mimblewimble-密码学方案](consensus/mimblewimble.md)
   * [Plasma-侧链方案](consensus/plasma.md)
   * [Conflux-链与DAG组合技术](consensus/conflux.md)
+  * [Polkadot-跨链技术](consensus/polkadot.md)
 * 密码学
   * [sodium加密库](cryptography/sodium.md)
   * [Curve25519/Ed25519/X25519](cryptography/25519.md)

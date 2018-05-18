@@ -296,7 +296,7 @@ CORBA - 分布式对象； EJB, Fractal - 分布式组件
 - 三代技术
   - 第一代：音乐文件交换服务。[Napster](https://en.wikipedia.org/wiki/Napster)
   - 第二代：文件共享型的更大伸缩性，匿名使用能够，具有容错机制。[Freenet](https://freenetproject.org/), [Gnutella](https://en.wikipedia.org/wiki/Gnutella), [Kazaa](https://en.wikipedia.org/wiki/Kazaa), [BitTorrent](https://en.wikipedia.org/wiki/BitTorrent)
-  - 第三代：对等中间件。全球范围内管理与应用无关的分布式资源。[Pastry](https://en.wikipedia.org/wiki/Pastry_(DHT)), [Tapestry](https://en.wikipedia.org/wiki/Tapestry_(DHT)), CAN, Chord, Kademlia
+  - 第三代：对等中间件。全球范围内管理与应用无关的分布式资源。[Pastry](https://en.wikipedia.org/wiki/Pastry_&#40;DHT&#41;), [Tapestry](https://en.wikipedia.org/wiki/Tapestry_&#40;DHT&#41;), CAN, Chord, Kademlia
 - 对等中间件
   - 关键：快速高效的索引方式 - 第一代是集中式索引，第二代是分区和分布式索引
   - 需求

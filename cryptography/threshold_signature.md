@@ -1,8 +1,4 @@
 ### 门限签名
 (t, n)形式
-2. Resource request receipt. P(j) receives P(i)’s request message. P(j) then puts the message on its request queue and sends an acknowledgement to P(i). By IR2, the the acknowledgement is timestamped later than T(m). If P(j) has already sent P(i) a message timestamped later than T(m), it doesn’t have to send an acknowledgement since all that P(i) needs is a message from P(j) timestamped later than T(m).
-
-The algorithm described above orders requests using the relation ⇒. This can cause the following anomalous behavior to occur.  Assume a system of interconnected computers across the country with some shared resource. A user issues request a on computer A to request for the shared resource. He then calls a friend in another city to issue request b on computer B to also request for that resource. Request b can be ordered before a on computer B if the request message for a is received by B after request b has been made. This causes computers A and B to have requests ordered differently. a comes before b on computer A and b comes before a on computer B . It can happen that at some point, a is the first request on computer A and b is the first on B. This satisfies condition (i) of the algorithm’s rule 5 (resource allocation rule). Assume that condition (ii) has already been satisfied. Then both computers will try to obtain the shared resource at about the same time causing a conflict.
-
-Give the user the responsibility for avoiding anomalous behavior. For example, when request a is made, the user making the request is given the timestamp for that request. When that user then calls his friend, the friend can request that request b be given a later timestamp than a.
+... 待加
 

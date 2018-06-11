@@ -33,7 +33,7 @@
   * [sodium加密库](cryptography/sodium.md)
   * [Curve25519/Ed25519/X25519](cryptography/25519.md)
   * [前（后）向安全性](cryptography/forward_backward_secrecy.md)
-  * [门限签名](cryptography/threshold_signature.md.md)
+  * [门限签名](cryptography/threshold_signature.md)
   * [环签名](cryptography/ring_signature.md)
   * [密码学52个知识点](cryptography/52_things_cryptography.md)
   * [知识点1-处理器区别](cryptography/things_1.md)
@@ -46,7 +46,7 @@
 * P2P通信
   * [DHT](P2P/dht.md)
   * [DHT-Kademlia](P2P/kademlia.md)
-  * [S/Kademlia](P2P/secure_kademlia.md.md)
+  * [S/Kademlia](P2P/secure_kademlia.md)
 * 存储
   * [缓存置换机制](db/cache_replacement_policies.md)
   * [WAL-预写式日志](db/wal.md)

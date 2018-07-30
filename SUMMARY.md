@@ -29,6 +29,11 @@
   * [Plasma-侧链方案](consensus/plasma.md)
   * [Conflux-链与DAG组合技术](consensus/conflux.md)
   * [Polkadot-跨链技术](consensus/polkadot.md)
+  * [Parsec-DAG共识算法](consensus/parsec.md)
+  * [HAL-异步拜占庭](consensus/hal_signature_free.md)
+  * [Made Trivial-拜占庭协议](consensus/made_trivial.md)
+  * [Honey Badger BFT-拜占庭协议](consensus/honey_badger_bft.md)
+  * [Snowflake to Avalanche-共识协议](consensus/snowflake_avalanche.md)
 * 密码学
   * [sodium加密库](cryptography/sodium.md)
   * [Curve25519/Ed25519/X25519](cryptography/25519.md)

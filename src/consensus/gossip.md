@@ -1,4 +1,4 @@
-### Gossip算法
+## Gossip算法
 原始论文：Efficient Reconciliation and Flow Control for Anti-Entropy Protocols
 
 别名 Anti-Entropy(反熵), “闲话算法”, “疫情传播算法”, “病毒感染算法”, “谣言传播算法”

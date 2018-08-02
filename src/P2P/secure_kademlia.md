@@ -1,5 +1,3 @@
-### S/Kademlia: A Practicable Approach Towards Secure Key-Based Routing
-### S/Kademlia：实现安全密钥路由的可行方法
 [原始论文](https://ieeexplore.ieee.org/document/4447808/)
 
 #### 针对Kademlia攻击

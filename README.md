@@ -4,6 +4,6 @@
 
 Note <-> Knowledge <-> Think
 
-直接阅读地址: [Sun Note](https://www.gitbook.com/book/sunhuachuang/sun-note/details)
+直接阅读地址: [Sun Note](https://github.com/sunhuachuang/Note/blob/master/src/SUMMARY.md)
 
 源码地址: [Github](https://github.com/sunhuachuang/Note)

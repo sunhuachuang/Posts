@@ -4,7 +4,7 @@
 ## Protocol for Asynchronous, Reliable, Secure and Efficient Consensus (PARSEC)
 
 ### 简介
-论文中主要论述了一种全新的拜占庭容错共识算法，通过弱同步来实现的。如同Hashgrap一样，没有leader，没有准备的轮，没有POW，并且达到最终的概率为1的共识。但是跟Hashgrap不同的是，它不仅提供一个非常高的速度，不管系统中是否出现容错。而且这是一个完全开放的，遵循GPLv3，采用Rusta实现。
+论文中主要论述了一种全新的拜占庭容错共识算法，通过弱同步来实现的。如同Hashgrap一样，没有leader，没有准备的轮，没有POW，并且达到最终的概率为1的共识。但是跟Hashgrap不同的是，它不仅提供一个非常高的速度，不管系统中是否出现容错。而且这是一个完全开放的，遵循GPLv3，采用Rust实现。
 
 跟HoneyBadeger BFT一样，这个算法建立在很多理论研究中的好的想法上。一个Gossip协议用来有效的在节点间沟通，如果Hashgrap和[Snowflake Avalanche]()一样. 传播消息，实际上达成共识只需要花费O(NlogN)通信和O(logN)阶段。
 
@@ -76,10 +76,49 @@
 
 观察者隐含地携带N个元投票的列表。每个元投票只是一个二进制值，表示在确定顺序时是否要考虑相应节点的块投票。观察者如果能够强烈地看到该节点的块投票，则在节点上进行元投票。每个节点都在进行元投票，因此有N个元投票，并且由于观察者强烈地看到绝大多数的块投票，根据定义，它们中至少有2/3N是真的。
 
-元选票将拜占庭关于秩序的协议问​​题减少到二元拜占庭协议的问题, 这解决了的[免签名的异步拜占庭]()中的问题。
+元投票将拜占庭关于秩序的协议问​​题减少到二元拜占庭协议的问题, 这解决了的[免签名的异步拜占庭]()中的问题。
 
 [免签名的异步拜占庭]()中描述的算法有一些缺点，但最重要的是需要一个共同的硬币，一个可能需要同步的原语和/或一个可信的第三方来进行有效的创建或设置。这里介绍的算法没有这样的要求。
 
 ##### Binary agreement
+为简单起见，我们将根据单个元投票来定义算法 - 即，在尝试选择单个新块时，决定是否考虑单个节点的意见。 我们可以查看节点X的元投票，其中最新约定的块B作为八卦图G的子集H（X，B）的函数，其是作为该元的任何观察者的后代的所有事件的集合。
+
+    meta_election(X,B): H(X,B) → {0, 1, ⊥}
+
+⊥表示在这个顶点，不能够对这个元投票进行决定。
+
+为了计算H（A, B）对事件的元投票信息, 首先定义一些辅助的信息：
+- **stage**: 表示计算阶段的计数器 (a counter denoting the calculation stage)
+- **estimates**: 对最终结果估计的单一或者两个的值集 (a set of one or two values estimating the final result)
+- **bin_values**: 二进制的辅助值集 (a helper set of binary values)
+- **aux**: 二进制的辅助值 (a helper binary value)
+
+stage是一个整数值，表示我们在查看特定的八卦事件时正在考虑的协议阶段。 一个数字与每个八卦事件相关联，这样观察者的阶段总是为0.任何其他八卦事件的阶段要么是其自我父母的阶段，要么是自我父母在特定条件下的的阶段+1。 稍后将更详细地描述阶段递增的确切条件。 其他变量，如estimates，bin_values和aux都取决于stage。 (round的概念?)
+
+estimates是一组二进制值，表示任何关于元投票结果的八卦事件的创建者的感知意见。 观察者的estimates是仅包含其自己的元投票的集合。 任何后续八卦事件的estimates可以是如下所述的不同集合。
+
+如果事件的自我父母的estimates中包含单个值v，并且该事件在其estimates值中看到超过N/3个事件且其中包含¬v（这意味着至少有一个诚实节点估计为¬v），则会添加此相反值 根据自己的估计（因此它将包含真和假）。 (?)
+
+![parsec fig_5](../static/parsec_fig_5.png)
 
 ##### Agreement about the next block
+
+
+
+### High level algorithm
+- When a node needs to vote on a new NodeState, it creates a GossipEvent for this with self_parent as the hash of the latest event in its own gossip history and other_parent as None
+- Periodically, a node gossips to another node
+  * Pick a recipient
+  * Send a GossipRequestRpc containing all the GossipEvents that it thinks the recipient hasn't seen according to its gossip graph
+- On receipt of a GossipRequestRpc, a node will
+  * Insert the contained GossipEvents into its gossip graph
+  * Create a new GossipEvent that records receipt of the latest gossip. The self_parent is the hash of the latest event in its own gossip history and other_parent is the hash of the sender's latest event in the GossipRequestRpc. The cause for this GossipEvent is GossipCause::Request
+  * Send a GossipResponseRpc containing all the GossipEvents that it thinks the sender hasn't seen according to its gossip graph. Send it to the sender
+  * Run the current gossip graph through the order consensus algorithm until it returns None. The output of this algorithm is an Option of newly-stable Block
+- On receipt of a GossipResponseRpc, a node will
+  * Insert the contained GossipEvents into its gossip graph
+  * Create a new GossipEvent that records receipt of the latest gossip. The self_parent is the hash of the latest event in its own gossip history and other_parent is the hash of the sender's latest event in the GossipResponseRpc. The cause for this GossipEvent is GossipCause::Response
+  * Run the current gossip graph through the order consensus algorithm until it returns None. The output of this algorithm is an Option of newly-stable Block
+- On observation of a change in the network structure, a node will
+  * Create a new GossipEvent that records observation of said network event. The self_parent is the hash of the latest event in its own gossip history and other_parent is None. The cause for this GossipEvent is GossipCause::Observation
+  * Insert the newly created GossipEvent into its gossip graph

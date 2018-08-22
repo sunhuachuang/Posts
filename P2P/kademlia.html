@@ -1,0 +1,288 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>DHT-Kademlia - Sun's Home</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+    </head>
+    <body class="light">
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">var path_to_root = "../";</script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { } 
+            if (theme === null || theme === undefined) { theme = 'light'; }
+            document.body.className = theme;
+            document.querySelector('html').className = theme + ' js';
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <ol class="chapter"><li class="affix"><a href="../homepage.html">Happy Hacking</a></li><li><a href="../distributed/index.html"><strong aria-hidden="true">1.</strong> 分布式基础</a></li><li><ol class="section"><li><a href="../distributed/byzantine_generals_problem.html"><strong aria-hidden="true">1.1.</strong> 拜占庭将军问题（BGP）</a></li><li><a href="../distributed/byzantine_agreement.html"><strong aria-hidden="true">1.2.</strong> 拜占庭协定（BA）与拜占庭容错（BFT）</a></li><li><a href="../distributed/binary_byzantine_agreement.html"><strong aria-hidden="true">1.3.</strong> 二元拜占庭协定（BBA）</a></li><li><a href="../distributed/time_state_order.html"><strong aria-hidden="true">1.4.</strong> 时钟，状态与顺序</a></li><li><a href="../distributed/flp.html"><strong aria-hidden="true">1.5.</strong> FLP</a></li><li><a href="../distributed/cap.html"><strong aria-hidden="true">1.6.</strong> CAP</a></li><li><a href="../distributed/crdt.html"><strong aria-hidden="true">1.7.</strong> CRDT</a></li><li><a href="../distributed/merklix-tree.html"><strong aria-hidden="true">1.8.</strong> Merklix-Merkle-Radix Tree</a></li><li><a href="../distributed/distributed_system.html"><strong aria-hidden="true">1.9.</strong> 书: 分布式系统（概念与设计）</a></li></ol></li><li><a href="../consensus/hashgraph.html"><strong aria-hidden="true">2.</strong> 共识算法</a></li><li><ol class="section"><li><a href="../consensus/hashgraph.html"><strong aria-hidden="true">2.1.</strong> Hashgraph-DAG共识算法</a></li><li><a href="../consensus/gossip.html"><strong aria-hidden="true">2.2.</strong> Gossip-消息交互方式</a></li><li><a href="../consensus/spectre.html"><strong aria-hidden="true">2.3.</strong> Spectre-DAG共识算法</a></li><li><a href="../consensus/phantom.html"><strong aria-hidden="true">2.4.</strong> Phantom-DAG共识算法</a></li><li><a href="../consensus/disjoint.html"><strong aria-hidden="true">2.5.</strong> Disjoint-分组算法</a></li><li><a href="../consensus/meshcash.html"><strong aria-hidden="true">2.6.</strong> Meshcash-分层拜占庭协议</a></li><li><a href="../consensus/algorand.html"><strong aria-hidden="true">2.7.</strong> Algorand-分层拜占庭协议</a></li><li><a href="../consensus/dfinity.html"><strong aria-hidden="true">2.8.</strong> Dfinity-密码学共识算法</a></li><li><a href="../consensus/pbft.html"><strong aria-hidden="true">2.9.</strong> PBFT-实用拜占庭协议</a></li><li><a href="../consensus/bft2f.html"><strong aria-hidden="true">2.10.</strong> BFT2F-1/2容错的拜占庭协议</a></li><li><a href="../consensus/binary-multivalued-BA.html"><strong aria-hidden="true">2.11.</strong> B2MBA-二元至多值拜占庭协议</a></li><li><a href="../consensus/eth-sharding.html"><strong aria-hidden="true">2.12.</strong> 以太坊分片技术</a></li><li><a href="../consensus/zilliqa.html"><strong aria-hidden="true">2.13.</strong> Zilliqa-分片技术</a></li><li><a href="../consensus/bitcoin-ng.html"><strong aria-hidden="true">2.14.</strong> Bitcoin-NG-扩展方案</a></li><li><a href="../consensus/off-chain.html"><strong aria-hidden="true">2.15.</strong> Off-Chain-链下方案</a></li><li><a href="../consensus/mimblewimble.html"><strong aria-hidden="true">2.16.</strong> Mimblewimble-密码学方案</a></li><li><a href="../consensus/plasma.html"><strong aria-hidden="true">2.17.</strong> Plasma-侧链方案</a></li><li><a href="../consensus/conflux.html"><strong aria-hidden="true">2.18.</strong> Conflux-链与DAG组合技术</a></li><li><a href="../consensus/polkadot.html"><strong aria-hidden="true">2.19.</strong> Polkadot-跨链技术</a></li><li><a href="../consensus/parsec.html"><strong aria-hidden="true">2.20.</strong> Parsec-DAG共识算法</a></li><li><a href="../consensus/hal_signature_free.html"><strong aria-hidden="true">2.21.</strong> SFAB-免签名的异步拜占庭共识</a></li><li><a href="../consensus/made_trivial.html"><strong aria-hidden="true">2.22.</strong> Made Trivial-拜占庭协议</a></li><li><a href="../consensus/honey_badger_bft.html"><strong aria-hidden="true">2.23.</strong> Honey Badger BFT-拜占庭协议</a></li><li><a href="../consensus/snowflake_avalanche.html"><strong aria-hidden="true">2.24.</strong> Snowflake Avalanche-共识协议</a></li></ol></li><li><a href="../cryptography/sodium.html"><strong aria-hidden="true">3.</strong> 密码学</a></li><li><ol class="section"><li><a href="../cryptography/sodium.html"><strong aria-hidden="true">3.1.</strong> sodium加密库</a></li><li><a href="../cryptography/25519.html"><strong aria-hidden="true">3.2.</strong> Curve25519/Ed25519/X25519</a></li><li><a href="../cryptography/forward_backward_secrecy.html"><strong aria-hidden="true">3.3.</strong> 前（后）向安全性</a></li><li><a href="../cryptography/threshold_signature.html"><strong aria-hidden="true">3.4.</strong> 门限签名</a></li><li><a href="../cryptography/ring_signature.html"><strong aria-hidden="true">3.5.</strong> 环签名</a></li><li><a href="../cryptography/bulletproofs.html"><strong aria-hidden="true">3.6.</strong> Bulletproofs-非交互零知识证明</a></li><li><a href="../cryptography/schnorr.html"><strong aria-hidden="true">3.7.</strong> Schnorr-系列算法和协议</a></li><li><a href="../cryptography/sigma.html"><strong aria-hidden="true">3.8.</strong> Sigma-系列算法和协议</a></li><li><a href="../cryptography/ristretto.html"><strong aria-hidden="true">3.9.</strong> Ristretto/Decaf-非素数阶曲线实现素数阶群</a></li><li><a href="../cryptography/52_things_cryptography.html"><strong aria-hidden="true">3.10.</strong> 密码学52个知识点</a></li><li><a href="../cryptography/things_1.html"><strong aria-hidden="true">3.11.</strong> 知识点1-处理器区别</a></li><li><a href="../cryptography/things_2.html"><strong aria-hidden="true">3.12.</strong> 知识点2-多核和矢量处理器</a></li><li><a href="../cryptography/things_3.html"><strong aria-hidden="true">3.13.</strong> 知识点3-不同设备的计算和存储</a></li><li><a href="../cryptography/things_4.html"><strong aria-hidden="true">3.14.</strong> 知识点4-复杂度类P</a></li><li><a href="../cryptography/things_5.html"><strong aria-hidden="true">3.15.</strong> 知识点5-复杂度类NP</a></li><li><a href="../cryptography/things_6.html"><strong aria-hidden="true">3.16.</strong> 知识点6-NP:多项式时间内检验证明的定理</a></li><li><a href="../cryptography/things_7.html"><strong aria-hidden="true">3.17.</strong> 知识点7-随机性与BPP</a></li></ol></li><li><a href="../P2P/dht.html"><strong aria-hidden="true">4.</strong> P2P通信</a></li><li><ol class="section"><li><a href="../P2P/dht.html"><strong aria-hidden="true">4.1.</strong> DHT</a></li><li><a href="../P2P/kademlia.html" class="active"><strong aria-hidden="true">4.2.</strong> DHT-Kademlia</a></li><li><a href="../P2P/secure_kademlia.html"><strong aria-hidden="true">4.3.</strong> S/Kademlia</a></li></ol></li><li><a href="../db/cache_replacement_policies.html"><strong aria-hidden="true">5.</strong> 存储</a></li><li><ol class="section"><li><a href="../db/cache_replacement_policies.html"><strong aria-hidden="true">5.1.</strong> 缓存置换机制</a></li><li><a href="../db/wal.html"><strong aria-hidden="true">5.2.</strong> WAL-预写式日志</a></li><li><a href="../db/hdd_ssd.html"><strong aria-hidden="true">5.3.</strong> hdd/ssd-硬盘存储设置差别</a></li><li><a href="../db/overlaydb.html"><strong aria-hidden="true">5.4.</strong> Overlay Database</a></li></ol></li><li><a href="../blockchain/blockchain_start.html"><strong aria-hidden="true">6.</strong> 区块链</a></li><li><ol class="section"><li><a href="../blockchain/blockchain_start.html"><strong aria-hidden="true">6.1.</strong> 区块链底层开发指北</a></li><li><a href="../blockchain/blockchain_door.html"><strong aria-hidden="true">6.2.</strong> 区块链世界浏览器脑洞</a></li><li><a href="../blockchain/exchanges.html"><strong aria-hidden="true">6.3.</strong> (去)中心化交易所模块</a></li><li><a href="../blockchain/attack_double_spending.html"><strong aria-hidden="true">6.4.</strong> 攻击-双花(Double-spending)</a></li><li><a href="../blockchain/attack_sybil.html"><strong aria-hidden="true">6.5.</strong> 攻击-女巫(Sybil)</a></li><li><a href="../blockchain/attack_eclipse.html"><strong aria-hidden="true">6.6.</strong> 攻击-日蚀(Eclipse)</a></li><li><a href="../blockchain/attack_targeted.html"><strong aria-hidden="true">6.7.</strong> 攻击-定向(Targeted)</a></li></ol></li><li><a href="../rust/learning.html"><strong aria-hidden="true">7.</strong> Rust</a></li><li><ol class="section"><li><a href="../rust/trait.html"><strong aria-hidden="true">7.1.</strong> Trait</a></li></ol></li><li><a href="../python/pip-mirrors.html"><strong aria-hidden="true">8.</strong> Python</a></li><li><ol class="section"><li><a href="../python/pip-mirrors.html"><strong aria-hidden="true">8.1.</strong> pip 国内镜像的正确使用姿态</a></li><li><a href="../python/selenium_chrome.html"><strong aria-hidden="true">8.2.</strong> selenium + headless Chrome</a></li><li><a href="../python/flask-dir.html"><strong aria-hidden="true">8.3.</strong> Flask 项目结构的分析</a></li></ol></li><li><a href="../emacs/live.html"><strong aria-hidden="true">9.</strong> Emacs</a></li><li><ol class="section"><li><a href="../emacs/emacs_love_python.html"><strong aria-hidden="true">9.1.</strong> 在emacs中开发python</a></li></ol></li><li><a href="../thinking/nowadays-education-of-classic-book-in-china.html"><strong aria-hidden="true">10.</strong> 杂笔</a></li><li><ol class="section"><li><a href="../thinking/nowadays-education-of-classic-book-in-china.html"><strong aria-hidden="true">10.1.</strong> 论中国传统教育现代化</a></li></ol></li></ol>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar" class="menu-bar">
+                    <div id="menu-bar-sticky-container">
+                        <div class="left-buttons">
+                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                                <i class="fa fa-paint-brush"></i>
+                            </button>
+                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light <span class="default">(default)</span></button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            </ul>
+                            
+                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            
+                        </div>
+
+                        <h1 class="menu-title">Sun's Home</h1> 
+
+                        <div class="right-buttons">
+                            <a href="../print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <a class="header" href="#kademlia" id="kademlia"><h3>Kademlia</h3></a>
+<p>https://web.archive.org/web/20051211011605/http://www.cs.rice.edu/Conferences/IPTPS02/109.pdf<br />
+https://github.com/bmuller/kademlia</p>
+<a class="header" href="#a拓扑结构二叉树" id="a拓扑结构二叉树"><h4>◇拓扑结构——二叉树</h4></a>
+<p>在映射之前，先做一下预处理。</p>
+<ol>
+<li>先把 key 以二进制形式表示。</li>
+<li>把每一个 key 缩短为它的【最短唯一前缀】。
+然后</li>
+<li>先把 key 以二进制形式表示，然后从高位到低位依次处理。</li>
+<li>二进制的第 n 个数位就对应了二叉树的第 n 层</li>
+<li>如果该位是1，进入左子树，是0则进入右子树（这只是人为约定，反过来处理也可以）</li>
+<li>全部数位都处理完后，这个 key 就对应了二叉树上的某个【叶子】</li>
+</ol>
+<a class="header" href="#a距离算法异或xor" id="a距离算法异或xor"><h4>◇距离算法——异或（XOR）</h4></a>
+<p>DHT算法都是采用某种逻辑上的距离，在Kademlia则采用简单的异或计算来衡量两节点间的距离，它和地理上的距离没有任何关系，但却具备几何公式的绝大特征：<br />
+（1）节点和它本身之间的异或距离是0<br />
+（2）异或距离是对称的：即从A到B的异或距离与从B到A的异或距离是等同的<br />
+（3）异或距离符合三角形不等式：给定三个顶点A B C，假如AC之间的异或距离最大,那么AC之间的异或距离必小于或等于AB异或距离和BC异或距离之和.<br />
+（4）对于给定的一个距离，距离A只存在有唯一的一个节点B，也即单向性，在查找路径上也是单向的，这个和地理距离不同。</p>
+<a class="header" href="#a路由机制" id="a路由机制"><h4>◇路由机制</h4></a>
+<p>对每一个节点，都可以【按照自己的视角】对整个二叉树进行拆分。<br />
+　拆分的规则是：先从根节点开始，把【不包含】自己的那个子树拆分出来；然后在剩下的子树再拆分不包含自己的下一层子树；以此类推，直到最后只剩下自己。<br />
+　Kad 默认的散列值空间是 m=160（散列值有 160 比特），因此拆分出来的子树【最多】有 160 个（考虑到实际的节点数【远远小于】2160，子树的个数会明显小于 160）。<br />
+　对于每一个节点而言，当它以自己的视角完成子树拆分后，会得到 n 个子树；对于每个子树，如果它都能知道里面的一个节点，那么它就可以利用这 n 个节点进行递归路由，从而到达整个二叉树的【任何一个】节点</p>
+<a class="header" href="#k-桶k-bucket" id="k-桶k-bucket"><h4>K-桶（K-bucket）</h4></a>
+<p>前面说了，每个节点在完成子树拆分后，只需要知道每个子树里面的一个节点，就足以实现全遍历。但是考虑到健壮性（请始终牢记：分布式系统的节点是动态变化滴），光知道【一个】显然是不够滴，需要知道【多个】才比较保险。<br />
+所以 Kad 论文中给出了一个“K-桶（K-bucket）”的概念。也就是说：每个节点在完成子树拆分后，要记录每个子树里面的 K 个节点。这里所说的 K 值是一个【系统级】的常量。由使用 Kad 的软件系统自己设定（比如 BT 下载使用的 Kad 网络，K 设定为 8）。<br />
+K 桶其实就是【路由表】。对于某个节点而言，如果【以它自己为视角】拆分了 n 个子树，那么它就需要维护 n 个路由表，并且每个路由表的【上限】是 K。<br />
+说 K 只是一个【上限】，是因为有两种情况使得 K 桶的尺寸会小于 K。<br />
+1. 距离越近的子树就越小。如果整个子树【可能存在的】节点数小于 K，那么该子树的 K 桶尺寸永远也不可能达到 K。<br />
+2. 有些子树虽然实际上线的节点数超过 K，但是因为种种原因，没有收集到该子树足够多的节点，这也会使得该子树的 K 桶尺寸小于 K。</p>
+<a class="header" href="#k-桶k-bucket的刷新机制" id="k-桶k-bucket的刷新机制"><h4>K-桶（K-bucket）的刷新机制</h4></a>
+<p>刷新机制大致有如下几种：</p>
+<ol>
+<li>
+<p>主动收集节点<br />
+　　任何节点都可以主动发起“查询节点”的请求（对应于协议类型 FIND_NODE），从而刷新 K 桶中的节点信息（下面聊“节点的加入”时，会提及这种）</p>
+</li>
+<li>
+<p>被动收集节点<br />
+　　如果收到其它节点发来的请求（协议类型 FIND_NODE 或 FIND_VALUE），会把对方的 ID 加入自己的某个 K 桶中。</p>
+</li>
+<li>
+<p>探测失效节点<br />
+　　Kad 还是支持一种探测机制（协议类型 PING），可以判断某个 ID 的节点是否在线。因此就可以定期探测路由表中的每一个节点，然后把下线的节点从路由表中干掉。<br />
+　　“并发请求”与“α 参数”<br />
+　　“K桶”的这个设计思路【天生支持并发】。因为【同一个】“K桶”中的每个节点都是平等的，没有哪个更特殊；而且对【同一个】“K桶”中的节点发起请求，互相之间没有影响（无耦合）。<br />
+　　所以 Kad 协议还引入了一个“α 参数”，默认设置为 3，使用 Kad 的软件可以在具体使用场景中调整这个 α 因子。<br />
+　　当需要路由到某个“子树”，会从该子树对应的“K桶”中挑选【α 个节点】，然后对这几个节点【同时】发出请求。</p>
+</li>
+</ol>
+<a class="header" href="#a节点的加入" id="a节点的加入"><h4>◇节点的加入</h4></a>
+<ol>
+<li>任何一个新来的节点（假设叫 A），需要先跟 DHT 中已有的任一节点（假设叫 B）建立连接。</li>
+<li>A 随机生成一个散列值作为自己的 ID（对于足够大的散列值空间，ID 相同的概率忽略不计）</li>
+<li>A 向 B 发起一个查询请求（协议类型 FIND_NODE），请求的 ID 是自己（通俗地说，就是查询自己）</li>
+<li>B 收到该请求之后，（如前面所说）会先把 A 的 ID 加入自己的某个 K 桶中。然后，根据 FIND_NODE 协议的约定，B 会找到【K个】最接近 A 的节点，并返回给 A。（B 怎么知道哪些节点接近 A 捏？这时候，【用 XOR 表示距离】的算法就发挥作用啦）</li>
+<li>A 收到这 K 个节点的 ID 之后，（仅仅根据这批 ID 的值）就可以开始初始化自己的 K 桶。</li>
+<li>然后 A 会继续向刚刚拿到的这批节点发送查询请求（协议类型 FIND_NODE），如此往复（递归），直至 A 建立了足够详细的路由表。</li>
+</ol>
+<a class="header" href="#a节点的退出" id="a节点的退出"><h4>◇节点的退出</h4></a>
+<p>　　与 Chord 不同，Kad 对于节点退出没有额外的要求（没有“主动退出”的说法）。<br />
+　　所以，Kad 的节点想离开 DHT 网络不需要任何操作（套用徐志摩的名言：悄悄的我走了，正如我悄悄的来）</p>
+<a class="header" href="#a保存数据" id="a保存数据"><h3>保存数据</h3></a>
+<p>（以下只是大致原理，具体的协议实现可能会有差异）</p>
+<ol>
+<li>当某个节点得到了新加入的数据（K/V），它会先计算自己与新数据的 key 之间的“距离”；然后再计算它所知道的其它节点与这个 key 的距离。</li>
+<li>如果计算下来，自己与 key 的距离最小，那么这个数据就保持在自己这里。</li>
+<li>否则的话，把这个数据转发给距离最小的节点。</li>
+<li>收到数据的另一个节点，也采用上述过程进行处理（递归处理）。</li>
+</ol>
+<a class="header" href="#a获取数据" id="a获取数据"><h3>获取数据</h3></a>
+<p>（以下只是大致原理，具体的协议实现可能会有差异）</p>
+<ol>
+<li>当某个节点接收到查询数据的请求（key），它会先计算自己与 key 之间的“距离”；然后再计算它所知道的其它节点与这个 key 的距离。</li>
+<li>如果计算下来，自己与 key 的距离最小，那么就在自己这里找有没有 key 对应的 value。有的话就返回 value，没有的话就报错。</li>
+<li>否则的话，把这个数据转发给距离最小的节点。</li>
+<li>收到数据的另一个节点，也采用上述过程进行处理（递归处理）。</li>
+</ol>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="../P2P/dht.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="../P2P/secure_kademlia.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a href="../P2P/dht.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a href="../P2P/secure_kademlia.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+        <script src="../ace.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../editor.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mode-rust.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../theme-dawn.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../theme-tomorrow_night.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

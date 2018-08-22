@@ -1,0 +1,334 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Parsec-DAG共识算法 - Sun's Home</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+    </head>
+    <body class="light">
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">var path_to_root = "../";</script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { } 
+            if (theme === null || theme === undefined) { theme = 'light'; }
+            document.body.className = theme;
+            document.querySelector('html').className = theme + ' js';
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <ol class="chapter"><li class="affix"><a href="../homepage.html">Happy Hacking</a></li><li><a href="../distributed/index.html"><strong aria-hidden="true">1.</strong> 分布式基础</a></li><li><ol class="section"><li><a href="../distributed/byzantine_generals_problem.html"><strong aria-hidden="true">1.1.</strong> 拜占庭将军问题（BGP）</a></li><li><a href="../distributed/byzantine_agreement.html"><strong aria-hidden="true">1.2.</strong> 拜占庭协定（BA）与拜占庭容错（BFT）</a></li><li><a href="../distributed/binary_byzantine_agreement.html"><strong aria-hidden="true">1.3.</strong> 二元拜占庭协定（BBA）</a></li><li><a href="../distributed/time_state_order.html"><strong aria-hidden="true">1.4.</strong> 时钟，状态与顺序</a></li><li><a href="../distributed/flp.html"><strong aria-hidden="true">1.5.</strong> FLP</a></li><li><a href="../distributed/cap.html"><strong aria-hidden="true">1.6.</strong> CAP</a></li><li><a href="../distributed/crdt.html"><strong aria-hidden="true">1.7.</strong> CRDT</a></li><li><a href="../distributed/merklix-tree.html"><strong aria-hidden="true">1.8.</strong> Merklix-Merkle-Radix Tree</a></li><li><a href="../distributed/distributed_system.html"><strong aria-hidden="true">1.9.</strong> 书: 分布式系统（概念与设计）</a></li></ol></li><li><a href="../consensus/hashgraph.html"><strong aria-hidden="true">2.</strong> 共识算法</a></li><li><ol class="section"><li><a href="../consensus/hashgraph.html"><strong aria-hidden="true">2.1.</strong> Hashgraph-DAG共识算法</a></li><li><a href="../consensus/gossip.html"><strong aria-hidden="true">2.2.</strong> Gossip-消息交互方式</a></li><li><a href="../consensus/spectre.html"><strong aria-hidden="true">2.3.</strong> Spectre-DAG共识算法</a></li><li><a href="../consensus/phantom.html"><strong aria-hidden="true">2.4.</strong> Phantom-DAG共识算法</a></li><li><a href="../consensus/disjoint.html"><strong aria-hidden="true">2.5.</strong> Disjoint-分组算法</a></li><li><a href="../consensus/meshcash.html"><strong aria-hidden="true">2.6.</strong> Meshcash-分层拜占庭协议</a></li><li><a href="../consensus/algorand.html"><strong aria-hidden="true">2.7.</strong> Algorand-分层拜占庭协议</a></li><li><a href="../consensus/dfinity.html"><strong aria-hidden="true">2.8.</strong> Dfinity-密码学共识算法</a></li><li><a href="../consensus/pbft.html"><strong aria-hidden="true">2.9.</strong> PBFT-实用拜占庭协议</a></li><li><a href="../consensus/bft2f.html"><strong aria-hidden="true">2.10.</strong> BFT2F-1/2容错的拜占庭协议</a></li><li><a href="../consensus/binary-multivalued-BA.html"><strong aria-hidden="true">2.11.</strong> B2MBA-二元至多值拜占庭协议</a></li><li><a href="../consensus/eth-sharding.html"><strong aria-hidden="true">2.12.</strong> 以太坊分片技术</a></li><li><a href="../consensus/zilliqa.html"><strong aria-hidden="true">2.13.</strong> Zilliqa-分片技术</a></li><li><a href="../consensus/bitcoin-ng.html"><strong aria-hidden="true">2.14.</strong> Bitcoin-NG-扩展方案</a></li><li><a href="../consensus/off-chain.html"><strong aria-hidden="true">2.15.</strong> Off-Chain-链下方案</a></li><li><a href="../consensus/mimblewimble.html"><strong aria-hidden="true">2.16.</strong> Mimblewimble-密码学方案</a></li><li><a href="../consensus/plasma.html"><strong aria-hidden="true">2.17.</strong> Plasma-侧链方案</a></li><li><a href="../consensus/conflux.html"><strong aria-hidden="true">2.18.</strong> Conflux-链与DAG组合技术</a></li><li><a href="../consensus/polkadot.html"><strong aria-hidden="true">2.19.</strong> Polkadot-跨链技术</a></li><li><a href="../consensus/parsec.html" class="active"><strong aria-hidden="true">2.20.</strong> Parsec-DAG共识算法</a></li><li><a href="../consensus/hal_signature_free.html"><strong aria-hidden="true">2.21.</strong> SFAB-免签名的异步拜占庭共识</a></li><li><a href="../consensus/made_trivial.html"><strong aria-hidden="true">2.22.</strong> Made Trivial-拜占庭协议</a></li><li><a href="../consensus/honey_badger_bft.html"><strong aria-hidden="true">2.23.</strong> Honey Badger BFT-拜占庭协议</a></li><li><a href="../consensus/snowflake_avalanche.html"><strong aria-hidden="true">2.24.</strong> Snowflake Avalanche-共识协议</a></li></ol></li><li><a href="../cryptography/sodium.html"><strong aria-hidden="true">3.</strong> 密码学</a></li><li><ol class="section"><li><a href="../cryptography/sodium.html"><strong aria-hidden="true">3.1.</strong> sodium加密库</a></li><li><a href="../cryptography/25519.html"><strong aria-hidden="true">3.2.</strong> Curve25519/Ed25519/X25519</a></li><li><a href="../cryptography/forward_backward_secrecy.html"><strong aria-hidden="true">3.3.</strong> 前（后）向安全性</a></li><li><a href="../cryptography/threshold_signature.html"><strong aria-hidden="true">3.4.</strong> 门限签名</a></li><li><a href="../cryptography/ring_signature.html"><strong aria-hidden="true">3.5.</strong> 环签名</a></li><li><a href="../cryptography/bulletproofs.html"><strong aria-hidden="true">3.6.</strong> Bulletproofs-非交互零知识证明</a></li><li><a href="../cryptography/schnorr.html"><strong aria-hidden="true">3.7.</strong> Schnorr-系列算法和协议</a></li><li><a href="../cryptography/sigma.html"><strong aria-hidden="true">3.8.</strong> Sigma-系列算法和协议</a></li><li><a href="../cryptography/ristretto.html"><strong aria-hidden="true">3.9.</strong> Ristretto/Decaf-非素数阶曲线实现素数阶群</a></li><li><a href="../cryptography/52_things_cryptography.html"><strong aria-hidden="true">3.10.</strong> 密码学52个知识点</a></li><li><a href="../cryptography/things_1.html"><strong aria-hidden="true">3.11.</strong> 知识点1-处理器区别</a></li><li><a href="../cryptography/things_2.html"><strong aria-hidden="true">3.12.</strong> 知识点2-多核和矢量处理器</a></li><li><a href="../cryptography/things_3.html"><strong aria-hidden="true">3.13.</strong> 知识点3-不同设备的计算和存储</a></li><li><a href="../cryptography/things_4.html"><strong aria-hidden="true">3.14.</strong> 知识点4-复杂度类P</a></li><li><a href="../cryptography/things_5.html"><strong aria-hidden="true">3.15.</strong> 知识点5-复杂度类NP</a></li><li><a href="../cryptography/things_6.html"><strong aria-hidden="true">3.16.</strong> 知识点6-NP:多项式时间内检验证明的定理</a></li><li><a href="../cryptography/things_7.html"><strong aria-hidden="true">3.17.</strong> 知识点7-随机性与BPP</a></li></ol></li><li><a href="../P2P/dht.html"><strong aria-hidden="true">4.</strong> P2P通信</a></li><li><ol class="section"><li><a href="../P2P/dht.html"><strong aria-hidden="true">4.1.</strong> DHT</a></li><li><a href="../P2P/kademlia.html"><strong aria-hidden="true">4.2.</strong> DHT-Kademlia</a></li><li><a href="../P2P/secure_kademlia.html"><strong aria-hidden="true">4.3.</strong> S/Kademlia</a></li></ol></li><li><a href="../db/cache_replacement_policies.html"><strong aria-hidden="true">5.</strong> 存储</a></li><li><ol class="section"><li><a href="../db/cache_replacement_policies.html"><strong aria-hidden="true">5.1.</strong> 缓存置换机制</a></li><li><a href="../db/wal.html"><strong aria-hidden="true">5.2.</strong> WAL-预写式日志</a></li><li><a href="../db/hdd_ssd.html"><strong aria-hidden="true">5.3.</strong> hdd/ssd-硬盘存储设置差别</a></li><li><a href="../db/overlaydb.html"><strong aria-hidden="true">5.4.</strong> Overlay Database</a></li></ol></li><li><a href="../blockchain/blockchain_start.html"><strong aria-hidden="true">6.</strong> 区块链</a></li><li><ol class="section"><li><a href="../blockchain/blockchain_start.html"><strong aria-hidden="true">6.1.</strong> 区块链底层开发指北</a></li><li><a href="../blockchain/blockchain_door.html"><strong aria-hidden="true">6.2.</strong> 区块链世界浏览器脑洞</a></li><li><a href="../blockchain/exchanges.html"><strong aria-hidden="true">6.3.</strong> (去)中心化交易所模块</a></li><li><a href="../blockchain/attack_double_spending.html"><strong aria-hidden="true">6.4.</strong> 攻击-双花(Double-spending)</a></li><li><a href="../blockchain/attack_sybil.html"><strong aria-hidden="true">6.5.</strong> 攻击-女巫(Sybil)</a></li><li><a href="../blockchain/attack_eclipse.html"><strong aria-hidden="true">6.6.</strong> 攻击-日蚀(Eclipse)</a></li><li><a href="../blockchain/attack_targeted.html"><strong aria-hidden="true">6.7.</strong> 攻击-定向(Targeted)</a></li></ol></li><li><a href="../rust/learning.html"><strong aria-hidden="true">7.</strong> Rust</a></li><li><ol class="section"><li><a href="../rust/trait.html"><strong aria-hidden="true">7.1.</strong> Trait</a></li></ol></li><li><a href="../python/pip-mirrors.html"><strong aria-hidden="true">8.</strong> Python</a></li><li><ol class="section"><li><a href="../python/pip-mirrors.html"><strong aria-hidden="true">8.1.</strong> pip 国内镜像的正确使用姿态</a></li><li><a href="../python/selenium_chrome.html"><strong aria-hidden="true">8.2.</strong> selenium + headless Chrome</a></li><li><a href="../python/flask-dir.html"><strong aria-hidden="true">8.3.</strong> Flask 项目结构的分析</a></li></ol></li><li><a href="../emacs/live.html"><strong aria-hidden="true">9.</strong> Emacs</a></li><li><ol class="section"><li><a href="../emacs/emacs_love_python.html"><strong aria-hidden="true">9.1.</strong> 在emacs中开发python</a></li></ol></li><li><a href="../thinking/nowadays-education-of-classic-book-in-china.html"><strong aria-hidden="true">10.</strong> 杂笔</a></li><li><ol class="section"><li><a href="../thinking/nowadays-education-of-classic-book-in-china.html"><strong aria-hidden="true">10.1.</strong> 论中国传统教育现代化</a></li></ol></li></ol>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar" class="menu-bar">
+                    <div id="menu-bar-sticky-container">
+                        <div class="left-buttons">
+                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                                <i class="fa fa-paint-brush"></i>
+                            </button>
+                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light <span class="default">(default)</span></button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            </ul>
+                            
+                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            
+                        </div>
+
+                        <h1 class="menu-title">Sun's Home</h1> 
+
+                        <div class="right-buttons">
+                            <a href="../print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <a class="header" href="#parsec-异步可靠安全和有效的共识算法" id="parsec-异步可靠安全和有效的共识算法"><h2>Parsec 异步，可靠，安全和有效的共识算法</h2></a>
+<p><a href="http://docs.maidsafe.net/Whitepapers/pdf/PARSEC.pdf">原始论文</a></p>
+<a class="header" href="#protocol-for-asynchronous-reliable-secure-and-efficient-consensus-parsec" id="protocol-for-asynchronous-reliable-secure-and-efficient-consensus-parsec"><h2>Protocol for Asynchronous, Reliable, Secure and Efficient Consensus (PARSEC)</h2></a>
+<a class="header" href="#a简介" id="a简介"><h3>简介</h3></a>
+<p>论文中主要论述了一种全新的拜占庭容错共识算法，通过弱同步来实现的。如同Hashgrap一样，没有leader，没有准备的轮，没有POW，并且达到最终的概率为1的共识。但是跟Hashgrap不同的是，它不仅提供一个非常高的速度，不管系统中是否出现容错。而且这是一个完全开放的，遵循GPLv3，采用Rust实现。</p>
+<p>跟HoneyBadeger BFT一样，这个算法建立在很多理论研究中的好的想法上。一个Gossip协议用来有效的在节点间沟通，如果Hashgrap和<a href="">Snowflake Avalanche</a>一样. 传播消息，实际上达成共识只需要花费O(NlogN)通信和O(logN)阶段。</p>
+<p>达到任意值的拜占庭协议的一般问题被简化为在参与每个决策的节点上达到二分拜占庭协议的更简单问题。 这允许我们在将其应用于Gossip协议之后重用<a href="">免签名的异步拜占庭</a>中描述的优雅二进制拜占庭协议协议。</p>
+<p>最后，在上面免签名的异步拜占庭中存在的可信领导者和可信步骤被替换为<a href="">异步协定</a>中实现异步的设置。</p>
+<a class="header" href="#a算法详解" id="a算法详解"><h3>算法详解</h3></a>
+<a class="header" href="#a网络模型" id="a网络模型"><h4>网络模型</h4></a>
+<p>我们假设网络是通过随机同步连接进行通信的算法的N个实例的集合N. “随机同步”是指消息以随机延迟传递，使得平均延迟是有限的。特别是，可能存在任意长时间延迟的时期。这是一个比弱同步更弱的假设，并且只比完全异步强一点，其中唯一的保证是最终传递消息。</p>
+<p>使用随机同步，就像完全异步一样，无法通过完全停止来判断实例是否已失败，或者消息传递只是延迟。</p>
+<p>我们允许最多t拜占庭（任意）失败的可能性，其中3t &lt;N。我們将调用未正确或诚实失败的实例，并且失败的实例有故障或恶意 - 因为拜占庭故障模型允许恶意行为和合作。</p>
+<p>我们将引用任何包含超过2/3N的实例作为绝对多数。</p>
+<a class="header" href="#a数据结构" id="a数据结构"><h4>数据结构</h4></a>
+<p>一个节点保持着两种结构：gossip图和所有区块顺序。gossip图的顶点称为gossip事件(gossip event)，包含下面的字段：</p>
+<ul>
+<li>有效负载(Payload) - 节点想要传过其他节点的数据</li>
+<li>自身父项(Self-parent) - 指向自身节点的上一次区块的hash</li>
+<li>其他父项(Other-parent) - 指向一个其他节点创建的区块的hash</li>
+<li>原因(Cause) - 此事件的创建原因; 可以是请求，回应或观察</li>
+<li>创建者ID(Creator ID) - 创建这个事件的创建者的公钥</li>
+<li>签名(Signature) - 整体的签名</li>
+</ul>
+<p>除了由各个节点创建的第一个事件之外，自父项和其他父项始终存在，因为在这种情况下不存在要引用的父事件。 由于观察而在创建的事件中也缺少其他父母 - 因为在这种情况下没有goosip伙伴。</p>
+<p>有序集中的块是由网络中的节点的子集签名的网络事件。 该集合是算法的输出，表示所有节点都同意的网络事件的顺序。</p>
+<p>我们还要定义一些关于gossip图的有用术语以供将来使用。</p>
+<ul>
+<li>
+<p>Definition 2.1. We say that event A is an ancestor of event B iff: A=B, or A is an ancestor of B’s self-parent, or A is an ancestor of B’s other-parent.</p>
+</li>
+<li>
+<p>定义 2.1. 我们说事件A是事件B的祖先，那么：A = B，或者A是B的自身父事件的祖先，或者A是B的其他父事件的祖先。</p>
+</li>
+<li>
+<p>Definition 2.2. We say that event A is a descendant of event B iff: B is an ancestor of A.</p>
+</li>
+<li>
+<p>定义 2.2. 我们说事件A是事件B的后裔，那么：B是A的祖先。</p>
+</li>
+<li>
+<p>Definition 2.3. We say that event A is a strict ancestor/descendant of event B iff A is an ancestor/descendant of B and A != B.</p>
+</li>
+<li>
+<p>定义2.3. 我们说事件A是事件B的严格祖先/后代，那么: A是B和A的祖先/后代，并且A != B.</p>
+</li>
+<li>
+<p>Definition 2.4. An event A is said to see an event B iff B is an ancestor of A, and there doesn’t exist any pair of events by B ’s creator B1, B2 , such that B1 and B2 are ancestors of A , but B1 is neither an ancestor nor a descendant of B2 (see fig. 1). We call a situation in which such a pair exists a fork.</p>
+</li>
+<li>
+<p>定义2.4. 事件A能看到事件B，表现为事件B是A的祖先，并且B的创建者B1，B2不存在任何事件对，使得B1和B2是A的祖先，但B1是既不是B2的祖先也不是后代（见图1）。我们称这种情况下存在一个分叉的情况。</p>
+</li>
+<li>
+<p>Definition 2.5. An event A is said to strongly see an event B iff A sees a set of events created by a supermajority of nodes in the system that all see B (see fig. 2).</p>
+</li>
+<li>
+<p>定义2.5. 事件A能够强烈的看到事件B，表现为A能够看到系统中绝大多数节点的事件都可以看到B。</p>
+</li>
+</ul>
+<p><img src="../static/parsec_fig_1_2.png" alt="parsec fig1_2" /></p>
+<a class="header" href="#a算法总览" id="a算法总览"><h4>算法总览</h4></a>
+<p>在每一轮中，节点将执行两个主要步骤：</p>
+<ul>
+<li>与随机的节点进行gossip图的同步</li>
+<li>确定是否将任何的新块加入到有序集中</li>
+</ul>
+<a class="header" href="#a同步" id="a同步"><h5>同步</h5></a>
+<p>此步骤负责构建Gossip图,并在网络中传播信息。节点不断向其他节点发出称为同步请求的随机调用，并交换有关该图的信息，以便所有正确的节点在其图中以相同的数据结束。gossip事件中的哈希和签名可确保恶意节点无法篡改图表的任何部分。</p>
+<p>每当节点收到同步请求时，它就会创建一个新的gossip事件并发回一个同步响应。此事件的自我父事件是收件人创建的最后一个gossip事件的哈希值，另一个父事件是发件人创建的最后一个事件的哈希值（收件人从交换中获知）。同步响应的收件人还会创建一个具有类似父项的新事件。创建的两个事件还存储创建它们的原因（无论是由于请求还是响应）。</p>
+<p>如果请求/响应的接收者认为它知道应该作为链中的下一个附加的网络事件，则将其投票记录为新创建的事件的有效负载。其他节点将在其创建者进行的后续同步交换期间了解此投票。</p>
+<a class="header" href="#a决定顺序" id="a决定顺序"><h5>决定顺序</h5></a>
+<p>在这个阶段，节点将分析图，统计投票数来决定哪个区块将作为下一个区块，这个步骤是复杂的，所以在下面另开一章描述。</p>
+<a class="header" href="#a计算顺序" id="a计算顺序"><h4>计算顺序</h4></a>
+<p>为了对区块进行排序，我们首先得有一些区块。</p>
+<p>如上所述，Gossip事件可能包含对网络中事件的投票。 看到由包含针对给定网络事件的投票的绝大多数节点创建的事件的gossip事件被称为有效块，并且我们将这种gossip事件称为块投票。强烈看到由绝大多数节点创建的块投票的第一个gossip事件被认为是观察者。块投票不需要看到相同的有效块 - 实际上，当它们看到最有趣的不同有效块时就是这种情况。但是，它们必须仅引用尚未附加到有序集的块。</p>
+<p>观察者隐含地携带N个元投票的列表。每个元投票只是一个二进制值，表示在确定顺序时是否要考虑相应节点的块投票。观察者如果能够强烈地看到该节点的块投票，则在节点上进行元投票。每个节点都在进行元投票，因此有N个元投票，并且由于观察者强烈地看到绝大多数的块投票，根据定义，它们中至少有2/3N是真的。</p>
+<p>元投票将拜占庭关于秩序的协议问​​题减少到二元拜占庭协议的问题, 这解决了的<a href="">免签名的异步拜占庭</a>中的问题。</p>
+<p><a href="">免签名的异步拜占庭</a>中描述的算法有一些缺点，但最重要的是需要一个共同的硬币，一个可能需要同步的原语和/或一个可信的第三方来进行有效的创建或设置。这里介绍的算法没有这样的要求。</p>
+<a class="header" href="#binary-agreement" id="binary-agreement"><h5>Binary agreement</h5></a>
+<p>为简单起见，我们将根据单个元投票来定义算法 - 即，在尝试选择单个新块时，决定是否考虑单个节点的意见。 我们可以查看节点X的元投票，其中最新约定的块B作为八卦图G的子集H（X，B）的函数，其是作为该元的任何观察者的后代的所有事件的集合。</p>
+<pre><code>meta_election(X,B): H(X,B) → {0, 1, ⊥}
+</code></pre>
+<p>⊥表示在这个顶点，不能够对这个元投票进行决定。</p>
+<p>为了计算H（A, B）对事件的元投票信息, 首先定义一些辅助的信息：</p>
+<ul>
+<li><strong>stage</strong>: 表示计算阶段的计数器 (a counter denoting the calculation stage)</li>
+<li><strong>estimates</strong>: 对最终结果估计的单一或者两个的值集 (a set of one or two values estimating the final result)</li>
+<li><strong>bin_values</strong>: 二进制的辅助值集 (a helper set of binary values)</li>
+<li><strong>aux</strong>: 二进制的辅助值 (a helper binary value)</li>
+</ul>
+<p>stage是一个整数值，表示我们在查看特定的八卦事件时正在考虑的协议阶段。 一个数字与每个八卦事件相关联，这样观察者的阶段总是为0.任何其他八卦事件的阶段要么是其自我父母的阶段，要么是自我父母在特定条件下的的阶段+1。 稍后将更详细地描述阶段递增的确切条件。 其他变量，如estimates，bin_values和aux都取决于stage。 (round的概念?)</p>
+<p>estimates是一组二进制值，表示任何关于元投票结果的八卦事件的创建者的感知意见。 观察者的estimates是仅包含其自己的元投票的集合。 任何后续八卦事件的estimates可以是如下所述的不同集合。</p>
+<p>如果事件的自我父母的estimates中包含单个值v，并且该事件在其estimates值中看到超过N/3个事件且其中包含¬v（这意味着至少有一个诚实节点估计为¬v），则会添加此相反值 根据自己的估计（因此它将包含真和假）。 (?)</p>
+<p><img src="../static/parsec_fig_5.png" alt="parsec fig_5" /></p>
+<a class="header" href="#agreement-about-the-next-block" id="agreement-about-the-next-block"><h5>Agreement about the next block</h5></a>
+<a class="header" href="#high-level-algorithm" id="high-level-algorithm"><h3>High level algorithm</h3></a>
+<ul>
+<li>When a node needs to vote on a new NodeState, it creates a GossipEvent for this with self_parent as the hash of the latest event in its own gossip history and other_parent as None</li>
+<li>Periodically, a node gossips to another node
+<ul>
+<li>Pick a recipient</li>
+<li>Send a GossipRequestRpc containing all the GossipEvents that it thinks the recipient hasn't seen according to its gossip graph</li>
+</ul>
+</li>
+<li>On receipt of a GossipRequestRpc, a node will
+<ul>
+<li>Insert the contained GossipEvents into its gossip graph</li>
+<li>Create a new GossipEvent that records receipt of the latest gossip. The self_parent is the hash of the latest event in its own gossip history and other_parent is the hash of the sender's latest event in the GossipRequestRpc. The cause for this GossipEvent is GossipCause::Request</li>
+<li>Send a GossipResponseRpc containing all the GossipEvents that it thinks the sender hasn't seen according to its gossip graph. Send it to the sender</li>
+<li>Run the current gossip graph through the order consensus algorithm until it returns None. The output of this algorithm is an Option of newly-stable Block</li>
+</ul>
+</li>
+<li>On receipt of a GossipResponseRpc, a node will
+<ul>
+<li>Insert the contained GossipEvents into its gossip graph</li>
+<li>Create a new GossipEvent that records receipt of the latest gossip. The self_parent is the hash of the latest event in its own gossip history and other_parent is the hash of the sender's latest event in the GossipResponseRpc. The cause for this GossipEvent is GossipCause::Response</li>
+<li>Run the current gossip graph through the order consensus algorithm until it returns None. The output of this algorithm is an Option of newly-stable Block</li>
+</ul>
+</li>
+<li>On observation of a change in the network structure, a node will
+<ul>
+<li>Create a new GossipEvent that records observation of said network event. The self_parent is the hash of the latest event in its own gossip history and other_parent is None. The cause for this GossipEvent is GossipCause::Observation</li>
+<li>Insert the newly created GossipEvent into its gossip graph</li>
+</ul>
+</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="../consensus/polkadot.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="../consensus/hal_signature_free.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a href="../consensus/polkadot.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a href="../consensus/hal_signature_free.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+        <script src="../ace.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../editor.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mode-rust.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../theme-dawn.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../theme-tomorrow_night.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

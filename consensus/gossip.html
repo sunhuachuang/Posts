@@ -1,0 +1,276 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Gossip-消息交互方式 - Sun's Home</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+    </head>
+    <body class="light">
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">var path_to_root = "../";</script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { } 
+            if (theme === null || theme === undefined) { theme = 'light'; }
+            document.body.className = theme;
+            document.querySelector('html').className = theme + ' js';
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <ol class="chapter"><li class="affix"><a href="../homepage.html">Happy Hacking</a></li><li><a href="../distributed/index.html"><strong aria-hidden="true">1.</strong> 分布式基础</a></li><li><ol class="section"><li><a href="../distributed/byzantine_generals_problem.html"><strong aria-hidden="true">1.1.</strong> 拜占庭将军问题（BGP）</a></li><li><a href="../distributed/byzantine_agreement.html"><strong aria-hidden="true">1.2.</strong> 拜占庭协定（BA）与拜占庭容错（BFT）</a></li><li><a href="../distributed/binary_byzantine_agreement.html"><strong aria-hidden="true">1.3.</strong> 二元拜占庭协定（BBA）</a></li><li><a href="../distributed/time_state_order.html"><strong aria-hidden="true">1.4.</strong> 时钟，状态与顺序</a></li><li><a href="../distributed/flp.html"><strong aria-hidden="true">1.5.</strong> FLP</a></li><li><a href="../distributed/cap.html"><strong aria-hidden="true">1.6.</strong> CAP</a></li><li><a href="../distributed/crdt.html"><strong aria-hidden="true">1.7.</strong> CRDT</a></li><li><a href="../distributed/merklix-tree.html"><strong aria-hidden="true">1.8.</strong> Merklix-Merkle-Radix Tree</a></li><li><a href="../distributed/distributed_system.html"><strong aria-hidden="true">1.9.</strong> 书: 分布式系统（概念与设计）</a></li></ol></li><li><a href="../consensus/hashgraph.html"><strong aria-hidden="true">2.</strong> 共识算法</a></li><li><ol class="section"><li><a href="../consensus/hashgraph.html"><strong aria-hidden="true">2.1.</strong> Hashgraph-DAG共识算法</a></li><li><a href="../consensus/gossip.html" class="active"><strong aria-hidden="true">2.2.</strong> Gossip-消息交互方式</a></li><li><a href="../consensus/spectre.html"><strong aria-hidden="true">2.3.</strong> Spectre-DAG共识算法</a></li><li><a href="../consensus/phantom.html"><strong aria-hidden="true">2.4.</strong> Phantom-DAG共识算法</a></li><li><a href="../consensus/disjoint.html"><strong aria-hidden="true">2.5.</strong> Disjoint-分组算法</a></li><li><a href="../consensus/meshcash.html"><strong aria-hidden="true">2.6.</strong> Meshcash-分层拜占庭协议</a></li><li><a href="../consensus/algorand.html"><strong aria-hidden="true">2.7.</strong> Algorand-分层拜占庭协议</a></li><li><a href="../consensus/dfinity.html"><strong aria-hidden="true">2.8.</strong> Dfinity-密码学共识算法</a></li><li><a href="../consensus/pbft.html"><strong aria-hidden="true">2.9.</strong> PBFT-实用拜占庭协议</a></li><li><a href="../consensus/bft2f.html"><strong aria-hidden="true">2.10.</strong> BFT2F-1/2容错的拜占庭协议</a></li><li><a href="../consensus/binary-multivalued-BA.html"><strong aria-hidden="true">2.11.</strong> B2MBA-二元至多值拜占庭协议</a></li><li><a href="../consensus/eth-sharding.html"><strong aria-hidden="true">2.12.</strong> 以太坊分片技术</a></li><li><a href="../consensus/zilliqa.html"><strong aria-hidden="true">2.13.</strong> Zilliqa-分片技术</a></li><li><a href="../consensus/bitcoin-ng.html"><strong aria-hidden="true">2.14.</strong> Bitcoin-NG-扩展方案</a></li><li><a href="../consensus/off-chain.html"><strong aria-hidden="true">2.15.</strong> Off-Chain-链下方案</a></li><li><a href="../consensus/mimblewimble.html"><strong aria-hidden="true">2.16.</strong> Mimblewimble-密码学方案</a></li><li><a href="../consensus/plasma.html"><strong aria-hidden="true">2.17.</strong> Plasma-侧链方案</a></li><li><a href="../consensus/conflux.html"><strong aria-hidden="true">2.18.</strong> Conflux-链与DAG组合技术</a></li><li><a href="../consensus/polkadot.html"><strong aria-hidden="true">2.19.</strong> Polkadot-跨链技术</a></li><li><a href="../consensus/parsec.html"><strong aria-hidden="true">2.20.</strong> Parsec-DAG共识算法</a></li><li><a href="../consensus/hal_signature_free.html"><strong aria-hidden="true">2.21.</strong> SFAB-免签名的异步拜占庭共识</a></li><li><a href="../consensus/made_trivial.html"><strong aria-hidden="true">2.22.</strong> Made Trivial-拜占庭协议</a></li><li><a href="../consensus/honey_badger_bft.html"><strong aria-hidden="true">2.23.</strong> Honey Badger BFT-拜占庭协议</a></li><li><a href="../consensus/snowflake_avalanche.html"><strong aria-hidden="true">2.24.</strong> Snowflake Avalanche-共识协议</a></li></ol></li><li><a href="../cryptography/sodium.html"><strong aria-hidden="true">3.</strong> 密码学</a></li><li><ol class="section"><li><a href="../cryptography/sodium.html"><strong aria-hidden="true">3.1.</strong> sodium加密库</a></li><li><a href="../cryptography/25519.html"><strong aria-hidden="true">3.2.</strong> Curve25519/Ed25519/X25519</a></li><li><a href="../cryptography/forward_backward_secrecy.html"><strong aria-hidden="true">3.3.</strong> 前（后）向安全性</a></li><li><a href="../cryptography/threshold_signature.html"><strong aria-hidden="true">3.4.</strong> 门限签名</a></li><li><a href="../cryptography/ring_signature.html"><strong aria-hidden="true">3.5.</strong> 环签名</a></li><li><a href="../cryptography/bulletproofs.html"><strong aria-hidden="true">3.6.</strong> Bulletproofs-非交互零知识证明</a></li><li><a href="../cryptography/schnorr.html"><strong aria-hidden="true">3.7.</strong> Schnorr-系列算法和协议</a></li><li><a href="../cryptography/sigma.html"><strong aria-hidden="true">3.8.</strong> Sigma-系列算法和协议</a></li><li><a href="../cryptography/ristretto.html"><strong aria-hidden="true">3.9.</strong> Ristretto/Decaf-非素数阶曲线实现素数阶群</a></li><li><a href="../cryptography/52_things_cryptography.html"><strong aria-hidden="true">3.10.</strong> 密码学52个知识点</a></li><li><a href="../cryptography/things_1.html"><strong aria-hidden="true">3.11.</strong> 知识点1-处理器区别</a></li><li><a href="../cryptography/things_2.html"><strong aria-hidden="true">3.12.</strong> 知识点2-多核和矢量处理器</a></li><li><a href="../cryptography/things_3.html"><strong aria-hidden="true">3.13.</strong> 知识点3-不同设备的计算和存储</a></li><li><a href="../cryptography/things_4.html"><strong aria-hidden="true">3.14.</strong> 知识点4-复杂度类P</a></li><li><a href="../cryptography/things_5.html"><strong aria-hidden="true">3.15.</strong> 知识点5-复杂度类NP</a></li><li><a href="../cryptography/things_6.html"><strong aria-hidden="true">3.16.</strong> 知识点6-NP:多项式时间内检验证明的定理</a></li><li><a href="../cryptography/things_7.html"><strong aria-hidden="true">3.17.</strong> 知识点7-随机性与BPP</a></li></ol></li><li><a href="../P2P/dht.html"><strong aria-hidden="true">4.</strong> P2P通信</a></li><li><ol class="section"><li><a href="../P2P/dht.html"><strong aria-hidden="true">4.1.</strong> DHT</a></li><li><a href="../P2P/kademlia.html"><strong aria-hidden="true">4.2.</strong> DHT-Kademlia</a></li><li><a href="../P2P/secure_kademlia.html"><strong aria-hidden="true">4.3.</strong> S/Kademlia</a></li></ol></li><li><a href="../db/cache_replacement_policies.html"><strong aria-hidden="true">5.</strong> 存储</a></li><li><ol class="section"><li><a href="../db/cache_replacement_policies.html"><strong aria-hidden="true">5.1.</strong> 缓存置换机制</a></li><li><a href="../db/wal.html"><strong aria-hidden="true">5.2.</strong> WAL-预写式日志</a></li><li><a href="../db/hdd_ssd.html"><strong aria-hidden="true">5.3.</strong> hdd/ssd-硬盘存储设置差别</a></li><li><a href="../db/overlaydb.html"><strong aria-hidden="true">5.4.</strong> Overlay Database</a></li></ol></li><li><a href="../blockchain/blockchain_start.html"><strong aria-hidden="true">6.</strong> 区块链</a></li><li><ol class="section"><li><a href="../blockchain/blockchain_start.html"><strong aria-hidden="true">6.1.</strong> 区块链底层开发指北</a></li><li><a href="../blockchain/blockchain_door.html"><strong aria-hidden="true">6.2.</strong> 区块链世界浏览器脑洞</a></li><li><a href="../blockchain/exchanges.html"><strong aria-hidden="true">6.3.</strong> (去)中心化交易所模块</a></li><li><a href="../blockchain/attack_double_spending.html"><strong aria-hidden="true">6.4.</strong> 攻击-双花(Double-spending)</a></li><li><a href="../blockchain/attack_sybil.html"><strong aria-hidden="true">6.5.</strong> 攻击-女巫(Sybil)</a></li><li><a href="../blockchain/attack_eclipse.html"><strong aria-hidden="true">6.6.</strong> 攻击-日蚀(Eclipse)</a></li><li><a href="../blockchain/attack_targeted.html"><strong aria-hidden="true">6.7.</strong> 攻击-定向(Targeted)</a></li></ol></li><li><a href="../rust/learning.html"><strong aria-hidden="true">7.</strong> Rust</a></li><li><ol class="section"><li><a href="../rust/trait.html"><strong aria-hidden="true">7.1.</strong> Trait</a></li></ol></li><li><a href="../python/pip-mirrors.html"><strong aria-hidden="true">8.</strong> Python</a></li><li><ol class="section"><li><a href="../python/pip-mirrors.html"><strong aria-hidden="true">8.1.</strong> pip 国内镜像的正确使用姿态</a></li><li><a href="../python/selenium_chrome.html"><strong aria-hidden="true">8.2.</strong> selenium + headless Chrome</a></li><li><a href="../python/flask-dir.html"><strong aria-hidden="true">8.3.</strong> Flask 项目结构的分析</a></li></ol></li><li><a href="../emacs/live.html"><strong aria-hidden="true">9.</strong> Emacs</a></li><li><ol class="section"><li><a href="../emacs/emacs_love_python.html"><strong aria-hidden="true">9.1.</strong> 在emacs中开发python</a></li></ol></li><li><a href="../thinking/nowadays-education-of-classic-book-in-china.html"><strong aria-hidden="true">10.</strong> 杂笔</a></li><li><ol class="section"><li><a href="../thinking/nowadays-education-of-classic-book-in-china.html"><strong aria-hidden="true">10.1.</strong> 论中国传统教育现代化</a></li></ol></li></ol>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar" class="menu-bar">
+                    <div id="menu-bar-sticky-container">
+                        <div class="left-buttons">
+                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                                <i class="fa fa-paint-brush"></i>
+                            </button>
+                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light <span class="default">(default)</span></button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            </ul>
+                            
+                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            
+                        </div>
+
+                        <h1 class="menu-title">Sun's Home</h1> 
+
+                        <div class="right-buttons">
+                            <a href="../print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <a class="header" href="#gossip算法" id="gossip算法"><h2>Gossip算法</h2></a>
+<p>原始论文：Efficient Reconciliation and Flow Control for Anti-Entropy Protocols</p>
+<p>别名 Anti-Entropy(反熵), “闲话算法”, “疫情传播算法”, “病毒感染算法”, “谣言传播算法”</p>
+<p>之前的泛洪查找、路由算法都归属于这个范畴，不同的是Gossip给这类算法提供了明确的语义、具体实施方法及收敛性证明。</p>
+<p>Gossip是一个带冗余的容错算法，更进一步，Gossip是一个最终一致性算法。</p>
+<a class="header" href="#a1-gossip背景" id="a1-gossip背景"><h4>1. Gossip背景</h4></a>
+<p>Gossip算法如其名，灵感来自办公室八卦，只要一个人八卦一下，在有限的时间内所有的人都会知道该八卦的信息，这种方式也与病毒传播类似，因此Gossip有众多的别名“闲话算法”、“疫情传播算法”、“病毒感染算法”、“谣言传播算法”。</p>
+<p>但Gossip并不是一个新东西，之前的泛洪查找、路由算法都归属于这个范畴，不同的是Gossip给这类算法提供了明确的语义、具体实施方法及收敛性证明。</p>
+<a class="header" href="#a2-gossip特点" id="a2-gossip特点"><h4>2. Gossip特点</h4></a>
+<p>Gossip算法又被称为反熵（Anti-Entropy），熵是物理学上的一个概念，代表杂乱无章，而反熵就是在杂乱无章中寻求一致，这充分说明了Gossip的特点：在一个有界网络中，每个节点都随机地与其他节点通信，经过一番杂乱无章的通信，最终所有节点的状态都会达成一致。每个节点可能知道所有其他节点，也可能仅知道几个邻居节点，只要这些节可以通过网络连通，最终他们的状态都是一致的，当然这也是疫情传播的特点。</p>
+<p>要注意到的一点是，即使有的节点因宕机而重启，有新节点加入，但经过一段时间后，这些节点的状态也会与其他节点达成一致，也就是说，Gossip天然具有分布式容错的优点。</p>
+<a class="header" href="#a3-gossip本质" id="a3-gossip本质"><h4>3. Gossip本质</h4></a>
+<p>Gossip是一个带冗余的容错算法，更进一步，Gossip是一个最终一致性算法。虽然无法保证在某个时刻所有节点状态一致，但可以保证在”最终“所有节点一致，”最终“是一个现实中存在，但理论上无法证明的时间点。</p>
+<p>因为Gossip不要求节点知道所有其他节点，因此又具有去中心化的特点，节点之间完全对等，不需要任何的中心节点。实际上Gossip可以用于众多能接受“最终一致性”的领域：失败检测、路由同步、Pub/Sub、动态负载均衡。</p>
+<p>但Gossip的缺点也很明显，冗余通信会对网路带宽、CUP资源造成很大的负载，而这些负载又受限于通信频率，该频率又影响着算法收敛的速度，后面我们会讲在各种场合下的优化方法。</p>
+<a class="header" href="#a4-gossip节点的通信方式及收敛性" id="a4-gossip节点的通信方式及收敛性"><h4>4. Gossip节点的通信方式及收敛性</h4></a>
+<p>根据原论文，两个节点（A、B）之间存在三种通信方式:</p>
+<pre><code>push: A节点将数据(key,value,version)及对应的版本号推送给B节点，B节点更新A中比自己新的数据
+pull：A仅将数据key,version推送给B，B将本地比A新的数据（Key,value,version）推送给A，A更新本地
+push/pull：与pull类似，只是多了一步，A再将本地比B新的数据推送给B，B更新本地
+</code></pre>
+<p>如果把两个节点数据同步一次定义为一个周期，则在一个周期内，push需通信1次，pull需2次，push/pull则需3次，从效果上来讲，push/pull最好，理论上一个周期内可以使两个节点完全一致。直观上也感觉，push/pull的收敛速度是最快的。</p>
+<p>假设每个节点通信周期都能选择（感染）一个新节点，则Gossip算法退化为一个二分查找过程，每个周期构成一个平衡二叉树，收敛速度为O(n2 )，对应的时间开销则为O(logn )。这也是Gossip理论上最优的收敛速度。但在实际情况中最优收敛速度是很难达到的，假设某个节点在第i个周期被感染的概率为pi ,第i+1个周期被感染的概率为pi+1 ，则pull的方式:</p>
+<p>P(i+1) = Pi^2</p>
+<p>而push为：</p>
+<p>Pi+1) = Pi(1-1/n)^(n(1-pi))</p>
+<p>显然pull的收敛速度大于push，而每个节点在每个周期被感染的概率都是固定的p(0&lt;p&lt;1)，因此Gossip算法是基于p的平方收敛，也成为概率收敛，这在众多的一致性算法中是非常独特的。</p>
+<p>个Gossip的节点的工作方式又分两种：</p>
+<pre><code>Anti-Entropy（反熵）：以固定的概率传播所有的数据
+Rumor-Mongering（谣言传播）：仅传播新到达的数据
+</code></pre>
+<p>Anti-Entropy模式有完全的容错性，但有较大的网络、CPU负载；Rumor-Mongering模式有较小的网络、CPU负载，但必须为数据定义”最新“的边界，并且难以保证完全容错，对失败重启且超过”最新“期限的节点，无法保证最终一致性，或需要引入额外的机制处理不一致性。我们后续着重讨论Anti-Entropy模式的优化。</p>
+<a class="header" href="#a5-anti-entropy的协调机制" id="a5-anti-entropy的协调机制"><h4>5. Anti-Entropy的协调机制</h4></a>
+<p>协调机制是讨论在每次2个节点通信时，如何交换数据能达到最快的一致性，也即消除两个节点的不一致性。上面所讲的push、pull等是通信方式，协调是在通信方式下的数据交换机制。协调所面临的最大问题是，因为受限于网络负载，不可能每次都把一个节点上的数据发送给另外一个节点，也即每个Gossip的消息大小都有上限。在有限的空间上有效率地交换所有的消息是协调要解决的主要问题。</p>
+<p>在讨论之前先声明几个概念：</p>
+<pre><code>令N = {p,q,s,...}为需要gossip通信的server集合，有界大小
+令(p1,p2,...)是宿主在节点p上的数据，其中数据有(key,value,version)构成，q的规则与p类似。
+</code></pre>
+<p>为了保证一致性，规定数据的value及version只有宿主节点才能修改，其他节点只能间接通过Gossip协议来请求数据对应的宿主节点修改。</p>
+<a class="header" href="#a51-精确协调precise-reconciliation" id="a51-精确协调precise-reconciliation"><h5>5.1 精确协调（Precise Reconciliation）</h5></a>
+<p>精确协调希望在每次通信周期内都非常准确地消除双方的不一致性，具体表现为相互发送对方需要更新的数据，因为每个节点都在并发与多个节点通信，理论上精确协调很难做到。精确协调需要给每个数据项独立地维护自己的version，在每次交互是把所有的(key,value,version)发送到目标进行比对，从而找出双方不同之处从而更新。但因为Gossip消息存在大小限制，因此每次选择发送哪些数据就成了问题。当然可以随机选择一部分数据，也可确定性的选择数据。对确定性的选择而言，可以有最老优先（根据版本）和最新优先两种，最老优先会优先更新版本最新的数据，而最新更新正好相反，这样会造成老数据始终得不到机会更新，也即饥饿。</p>
+<p>当然，开发这也可根据业务场景构造自己的选择算法，但始终都无法避免消息量过多的问题。</p>
+<a class="header" href="#a52-整体协调scuttlebutt-reconciliation" id="a52-整体协调scuttlebutt-reconciliation"><h5>5.2 整体协调（Scuttlebutt Reconciliation）</h5></a>
+<p>整体协调与精确协调不同之处是，整体协调不是为每个数据都维护单独的版本号，而是为每个节点上的宿主数据维护统一的version。比如节点P会为(p1,p2,...)维护一个一致的全局version，相当于把所有的宿主数据看作一个整体，当与其他节点进行比较时，只需必须这些宿主数据的最高version，如果最高version相同说明这部分数据全部一致，否则再进行精确协调。</p>
+<p>整体协调对数据的选择也有两种方法：</p>
+<pre><code>广度优先：根据整体version大小排序，也称为公平选择
+深度优先：根据包含数据多少的排序，也称为非公平选择。因为后者更有实用价值，所以原论文更鼓励后者
+</code></pre>
+<a class="header" href="#a6-cassandra中的实现" id="a6-cassandra中的实现"><h4>6. Cassandra中的实现</h4></a>
+<p>经过验证，Cassandra实现了基于整体协调的push/push模式，有几个组件：</p>
+<p>三条消息分别对应push/pull的三个阶段：</p>
+<pre><code>GossipDigitsMessage
+GossipDigitsAckMessage
+GossipDigitsAck2Message
+</code></pre>
+<p>还有三种状态：</p>
+<pre><code>EndpointState：维护宿主数据的全局version，并封装了HeartBeat和ApplicationState
+HeartBeat：心跳信息
+ApplicationState：系统负载信息（磁盘使用率）
+</code></pre>
+<p>Cassandra主要是使用Gossip完成三方面的功能：</p>
+<pre><code>失败检测
+动态负载均衡
+去中心化的弹性扩展
+</code></pre>
+<a class="header" href="#a7-总结" id="a7-总结"><h4>7. 总结</h4></a>
+<p>Gossip是一种去中心化、容错而又最终一致性的绝妙算法，其收敛性不但得到证明还具有指数级的收敛速度。使用Gossip的系统可以很容易的把Server扩展到更多的节点，满足弹性扩展轻而易举。</p>
+<p>唯一的缺点是收敛是最终一致性，不使用那些强一致性的场景，比如2pc。</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="../consensus/hashgraph.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="../consensus/spectre.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a href="../consensus/hashgraph.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a href="../consensus/spectre.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+        <script src="../ace.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../editor.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mode-rust.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../theme-dawn.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../theme-tomorrow_night.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

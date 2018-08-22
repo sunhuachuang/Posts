@@ -1,0 +1,414 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>密码学52个知识点 - Sun's Home</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+    </head>
+    <body class="light">
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">var path_to_root = "../";</script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { } 
+            if (theme === null || theme === undefined) { theme = 'light'; }
+            document.body.className = theme;
+            document.querySelector('html').className = theme + ' js';
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <ol class="chapter"><li class="affix"><a href="../homepage.html">Happy Hacking</a></li><li><a href="../distributed/index.html"><strong aria-hidden="true">1.</strong> 分布式基础</a></li><li><ol class="section"><li><a href="../distributed/byzantine_generals_problem.html"><strong aria-hidden="true">1.1.</strong> 拜占庭将军问题（BGP）</a></li><li><a href="../distributed/byzantine_agreement.html"><strong aria-hidden="true">1.2.</strong> 拜占庭协定（BA）与拜占庭容错（BFT）</a></li><li><a href="../distributed/binary_byzantine_agreement.html"><strong aria-hidden="true">1.3.</strong> 二元拜占庭协定（BBA）</a></li><li><a href="../distributed/time_state_order.html"><strong aria-hidden="true">1.4.</strong> 时钟，状态与顺序</a></li><li><a href="../distributed/flp.html"><strong aria-hidden="true">1.5.</strong> FLP</a></li><li><a href="../distributed/cap.html"><strong aria-hidden="true">1.6.</strong> CAP</a></li><li><a href="../distributed/crdt.html"><strong aria-hidden="true">1.7.</strong> CRDT</a></li><li><a href="../distributed/merklix-tree.html"><strong aria-hidden="true">1.8.</strong> Merklix-Merkle-Radix Tree</a></li><li><a href="../distributed/distributed_system.html"><strong aria-hidden="true">1.9.</strong> 书: 分布式系统（概念与设计）</a></li></ol></li><li><a href="../consensus/hashgraph.html"><strong aria-hidden="true">2.</strong> 共识算法</a></li><li><ol class="section"><li><a href="../consensus/hashgraph.html"><strong aria-hidden="true">2.1.</strong> Hashgraph-DAG共识算法</a></li><li><a href="../consensus/gossip.html"><strong aria-hidden="true">2.2.</strong> Gossip-消息交互方式</a></li><li><a href="../consensus/spectre.html"><strong aria-hidden="true">2.3.</strong> Spectre-DAG共识算法</a></li><li><a href="../consensus/phantom.html"><strong aria-hidden="true">2.4.</strong> Phantom-DAG共识算法</a></li><li><a href="../consensus/disjoint.html"><strong aria-hidden="true">2.5.</strong> Disjoint-分组算法</a></li><li><a href="../consensus/meshcash.html"><strong aria-hidden="true">2.6.</strong> Meshcash-分层拜占庭协议</a></li><li><a href="../consensus/algorand.html"><strong aria-hidden="true">2.7.</strong> Algorand-分层拜占庭协议</a></li><li><a href="../consensus/dfinity.html"><strong aria-hidden="true">2.8.</strong> Dfinity-密码学共识算法</a></li><li><a href="../consensus/pbft.html"><strong aria-hidden="true">2.9.</strong> PBFT-实用拜占庭协议</a></li><li><a href="../consensus/bft2f.html"><strong aria-hidden="true">2.10.</strong> BFT2F-1/2容错的拜占庭协议</a></li><li><a href="../consensus/binary-multivalued-BA.html"><strong aria-hidden="true">2.11.</strong> B2MBA-二元至多值拜占庭协议</a></li><li><a href="../consensus/eth-sharding.html"><strong aria-hidden="true">2.12.</strong> 以太坊分片技术</a></li><li><a href="../consensus/zilliqa.html"><strong aria-hidden="true">2.13.</strong> Zilliqa-分片技术</a></li><li><a href="../consensus/bitcoin-ng.html"><strong aria-hidden="true">2.14.</strong> Bitcoin-NG-扩展方案</a></li><li><a href="../consensus/off-chain.html"><strong aria-hidden="true">2.15.</strong> Off-Chain-链下方案</a></li><li><a href="../consensus/mimblewimble.html"><strong aria-hidden="true">2.16.</strong> Mimblewimble-密码学方案</a></li><li><a href="../consensus/plasma.html"><strong aria-hidden="true">2.17.</strong> Plasma-侧链方案</a></li><li><a href="../consensus/conflux.html"><strong aria-hidden="true">2.18.</strong> Conflux-链与DAG组合技术</a></li><li><a href="../consensus/polkadot.html"><strong aria-hidden="true">2.19.</strong> Polkadot-跨链技术</a></li><li><a href="../consensus/parsec.html"><strong aria-hidden="true">2.20.</strong> Parsec-DAG共识算法</a></li><li><a href="../consensus/hal_signature_free.html"><strong aria-hidden="true">2.21.</strong> SFAB-免签名的异步拜占庭共识</a></li><li><a href="../consensus/made_trivial.html"><strong aria-hidden="true">2.22.</strong> Made Trivial-拜占庭协议</a></li><li><a href="../consensus/honey_badger_bft.html"><strong aria-hidden="true">2.23.</strong> Honey Badger BFT-拜占庭协议</a></li><li><a href="../consensus/snowflake_avalanche.html"><strong aria-hidden="true">2.24.</strong> Snowflake Avalanche-共识协议</a></li></ol></li><li><a href="../cryptography/sodium.html"><strong aria-hidden="true">3.</strong> 密码学</a></li><li><ol class="section"><li><a href="../cryptography/sodium.html"><strong aria-hidden="true">3.1.</strong> sodium加密库</a></li><li><a href="../cryptography/25519.html"><strong aria-hidden="true">3.2.</strong> Curve25519/Ed25519/X25519</a></li><li><a href="../cryptography/forward_backward_secrecy.html"><strong aria-hidden="true">3.3.</strong> 前（后）向安全性</a></li><li><a href="../cryptography/threshold_signature.html"><strong aria-hidden="true">3.4.</strong> 门限签名</a></li><li><a href="../cryptography/ring_signature.html"><strong aria-hidden="true">3.5.</strong> 环签名</a></li><li><a href="../cryptography/bulletproofs.html"><strong aria-hidden="true">3.6.</strong> Bulletproofs-非交互零知识证明</a></li><li><a href="../cryptography/schnorr.html"><strong aria-hidden="true">3.7.</strong> Schnorr-系列算法和协议</a></li><li><a href="../cryptography/sigma.html"><strong aria-hidden="true">3.8.</strong> Sigma-系列算法和协议</a></li><li><a href="../cryptography/ristretto.html"><strong aria-hidden="true">3.9.</strong> Ristretto/Decaf-非素数阶曲线实现素数阶群</a></li><li><a href="../cryptography/52_things_cryptography.html" class="active"><strong aria-hidden="true">3.10.</strong> 密码学52个知识点</a></li><li><a href="../cryptography/things_1.html"><strong aria-hidden="true">3.11.</strong> 知识点1-处理器区别</a></li><li><a href="../cryptography/things_2.html"><strong aria-hidden="true">3.12.</strong> 知识点2-多核和矢量处理器</a></li><li><a href="../cryptography/things_3.html"><strong aria-hidden="true">3.13.</strong> 知识点3-不同设备的计算和存储</a></li><li><a href="../cryptography/things_4.html"><strong aria-hidden="true">3.14.</strong> 知识点4-复杂度类P</a></li><li><a href="../cryptography/things_5.html"><strong aria-hidden="true">3.15.</strong> 知识点5-复杂度类NP</a></li><li><a href="../cryptography/things_6.html"><strong aria-hidden="true">3.16.</strong> 知识点6-NP:多项式时间内检验证明的定理</a></li><li><a href="../cryptography/things_7.html"><strong aria-hidden="true">3.17.</strong> 知识点7-随机性与BPP</a></li></ol></li><li><a href="../P2P/dht.html"><strong aria-hidden="true">4.</strong> P2P通信</a></li><li><ol class="section"><li><a href="../P2P/dht.html"><strong aria-hidden="true">4.1.</strong> DHT</a></li><li><a href="../P2P/kademlia.html"><strong aria-hidden="true">4.2.</strong> DHT-Kademlia</a></li><li><a href="../P2P/secure_kademlia.html"><strong aria-hidden="true">4.3.</strong> S/Kademlia</a></li></ol></li><li><a href="../db/cache_replacement_policies.html"><strong aria-hidden="true">5.</strong> 存储</a></li><li><ol class="section"><li><a href="../db/cache_replacement_policies.html"><strong aria-hidden="true">5.1.</strong> 缓存置换机制</a></li><li><a href="../db/wal.html"><strong aria-hidden="true">5.2.</strong> WAL-预写式日志</a></li><li><a href="../db/hdd_ssd.html"><strong aria-hidden="true">5.3.</strong> hdd/ssd-硬盘存储设置差别</a></li><li><a href="../db/overlaydb.html"><strong aria-hidden="true">5.4.</strong> Overlay Database</a></li></ol></li><li><a href="../blockchain/blockchain_start.html"><strong aria-hidden="true">6.</strong> 区块链</a></li><li><ol class="section"><li><a href="../blockchain/blockchain_start.html"><strong aria-hidden="true">6.1.</strong> 区块链底层开发指北</a></li><li><a href="../blockchain/blockchain_door.html"><strong aria-hidden="true">6.2.</strong> 区块链世界浏览器脑洞</a></li><li><a href="../blockchain/exchanges.html"><strong aria-hidden="true">6.3.</strong> (去)中心化交易所模块</a></li><li><a href="../blockchain/attack_double_spending.html"><strong aria-hidden="true">6.4.</strong> 攻击-双花(Double-spending)</a></li><li><a href="../blockchain/attack_sybil.html"><strong aria-hidden="true">6.5.</strong> 攻击-女巫(Sybil)</a></li><li><a href="../blockchain/attack_eclipse.html"><strong aria-hidden="true">6.6.</strong> 攻击-日蚀(Eclipse)</a></li><li><a href="../blockchain/attack_targeted.html"><strong aria-hidden="true">6.7.</strong> 攻击-定向(Targeted)</a></li></ol></li><li><a href="../rust/learning.html"><strong aria-hidden="true">7.</strong> Rust</a></li><li><ol class="section"><li><a href="../rust/trait.html"><strong aria-hidden="true">7.1.</strong> Trait</a></li></ol></li><li><a href="../python/pip-mirrors.html"><strong aria-hidden="true">8.</strong> Python</a></li><li><ol class="section"><li><a href="../python/pip-mirrors.html"><strong aria-hidden="true">8.1.</strong> pip 国内镜像的正确使用姿态</a></li><li><a href="../python/selenium_chrome.html"><strong aria-hidden="true">8.2.</strong> selenium + headless Chrome</a></li><li><a href="../python/flask-dir.html"><strong aria-hidden="true">8.3.</strong> Flask 项目结构的分析</a></li></ol></li><li><a href="../emacs/live.html"><strong aria-hidden="true">9.</strong> Emacs</a></li><li><ol class="section"><li><a href="../emacs/emacs_love_python.html"><strong aria-hidden="true">9.1.</strong> 在emacs中开发python</a></li></ol></li><li><a href="../thinking/nowadays-education-of-classic-book-in-china.html"><strong aria-hidden="true">10.</strong> 杂笔</a></li><li><ol class="section"><li><a href="../thinking/nowadays-education-of-classic-book-in-china.html"><strong aria-hidden="true">10.1.</strong> 论中国传统教育现代化</a></li></ol></li></ol>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar" class="menu-bar">
+                    <div id="menu-bar-sticky-container">
+                        <div class="left-buttons">
+                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                                <i class="fa fa-paint-brush"></i>
+                            </button>
+                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light <span class="default">(default)</span></button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            </ul>
+                            
+                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            
+                        </div>
+
+                        <h1 class="menu-title">Sun's Home</h1> 
+
+                        <div class="right-buttons">
+                            <a href="../print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <a class="header" href="#a52-things-people-should-know-to-do-cryptography" id="a52-things-people-should-know-to-do-cryptography"><h2>52 Things People Should Know To Do Cryptography</h2></a>
+<a class="header" href="#a密码学52个知识点" id="a密码学52个知识点"><h2>密码学52个知识点</h2></a>
+<p>What is this?
+Cryptography is a highly interdisciplinary area; calling on expertise in Pure Mathematics, Computer Science and Electronic Engineering. At Bristol we cover the full range of these topics and as such our students come with a variety of backgrounds and need to understand a diverse range of topics. Students starting can often feel overwhelmed by the types of knowledge that they feel they need to know; not knowing what they need to remember and what they should not bother remembering.</p>
+<p>密码学是一个高度跨学科的领域：包括数学，计算机科学和电子工程方面的知识。在Bristol大学，我们涵盖了所有这些主题，不管我们的学生来自何种背景，都需要了解各种主题。开始的时候，学生往往会对这些知识点不知所措，不知道他们需要记住什么以及他们不应该记住什么。</p>
+<p>To aid you, below we have collected a set of 52 short points of things we think that at the end of the first year of a PhD all students should have some familiarity with. There is one point for every week of the year. If you know these things then following seminars, study groups and conference talks will be much easier. It will also help in putting your own work into context. Some of these are somewhat advanced topics, some of these are what one would pick up in certain undergraduate courses. This is deliberate since some are about being a cryptographer, and some are to address the fact that students start with different backgrounds.</p>
+<p>为了帮助你，下面我们收集了一系列52个关于我们认为在博士学位第一年结束时的所有学生都应该熟悉的内容。 一年中每周有一分。 如果你知道这些事情，那么在研讨会之后，研究小组和会议谈话将变得更容易。 它也将帮助您将自己的工作置于上下文中。 其中一些是有些高级的话题，其中一些是在某些本科课程中会选择的。 这是故意的，因为学生都是有各自的学习背景，有些人是关于密码学，有些是为了解决这样一个事实。</p>
+<p>If at the end of the first year you know the answers to ninety percent of the things we list then you should find that you will get more out of the conferences and talks you attend in your second year. In addition it will be easier to talk to cryptographers (who may be future employers) from other institutions since you will be able to converse with them using a common language. Almost all of the following are discussed in our undergraduate cryptography courses.</p>
+<p>如果在第一年结束时，你知道我们列出的百分之九十的答案，那么你应该会发现，你会在第二年参加的会议和谈话中获得更多的回报。 此外，与其他机构的密码学家（可能是未来的雇主）交谈会更容易，因为您可以使用通用语言与他们交谈。 以下几乎所有内容都在我们的本科密码学课程中讨论。</p>
+<p>By each section we give a reference to places where the definitions can be found, or where to start your reading. The list of references can be found at the bottom. Not all answers can be found in the references cited, but they should give you a place to start looking.</p>
+<p>通过每个部分，我们都会提供可以找到定义的地方或从哪里开始阅读。 参考列表可以在底部找到。 并不是所有的答案都可以在参考文献中找到，但他们应该给你一个开始寻找的地方。</p>
+<a class="header" href="#computer-engineering-e" id="computer-engineering-e"><h3>Computer Engineering ([E])</h3></a>
+<ul>
+<li>1 What is the difference between the following?
+<ul>
+<li>general-purpose processor.</li>
+<li>general-purpose processor with instruction-set extensions.</li>
+<li>special-purpose processor (or co-processor).</li>
+<li>An FPGA.</li>
+</ul>
+</li>
+<li>2 What is the difference between a multi-core processor and a vector processor?</li>
+<li>3 Estimate the relative computational and storage capabilities of...
+<ul>
+<li>a smart-card</li>
+<li>a micro-controller (i.e. a sensor node)</li>
+<li>an embedded or mobile computer (e.g., a mobile phone or PDA)</li>
+<li>a laptop- or desktop-class computer.</li>
+</ul>
+</li>
+</ul>
+<a class="header" href="#a中文计算机工程e" id="a中文计算机工程e"><h3>（中文）计算机工程（[E]）</h3></a>
+<ul>
+<li>1 以下几点有什么区别？
+<ul>
+<li>通用处理器。</li>
+<li>带指令集扩展的通用处理器。</li>
+<li>专用处理器（或协处理器）。</li>
+<li>一个FPGA。</li>
+</ul>
+</li>
+<li>2 多核处理器和矢量处理器有什么区别？</li>
+<li>3 估计以下设备的相对计算和存储能力
+<ul>
+<li>一张智能卡</li>
+<li>微控制器（即传感器节点）</li>
+<li>嵌入式或移动计算机（例如，移动电话或PDA）</li>
+<li>一台笔记本电脑或台式电脑。</li>
+</ul>
+</li>
+</ul>
+<a class="header" href="#theoretical-computer-science-f" id="theoretical-computer-science-f"><h3>Theoretical Computer Science ([F])</h3></a>
+<ul>
+<li>4 What is meant by the complexity class P?</li>
+<li>5 What is meant by the complexity class NP?</li>
+<li>6 How can we interpret NP as the set of theorems whose proofs can be checked in polynomial time?</li>
+<li>7 How does randomness help in computation, and what is the class BPP?</li>
+<li>8 How does interaction help in computation, and what is the class IP?</li>
+<li>9 What are Shannon's definitions of entropy and information?</li>
+</ul>
+<a class="header" href="#a中文理论计算机科学f" id="a中文理论计算机科学f"><h3>（中文）理论计算机科学（[F]）</h3></a>
+<ul>
+<li>4 复杂度类P含义是什么？</li>
+<li>5 复杂度类NP含义是什么？</li>
+<li>6 我们如何将NP解释为可以在多项式时间内检验证明的一组定理？</li>
+<li>7 随机性如何帮助计算，什么是BPP类？</li>
+<li>8 交互如何帮助计算，什么是类IP？</li>
+<li>9 香农对熵和信息的定义是什么？</li>
+</ul>
+<a class="header" href="#mathematical-background-ab" id="mathematical-background-ab"><h3>Mathematical Background ([A,B])</h3></a>
+<ul>
+<li>10 What is the difference between the RSA and the Strong-RSA problem?</li>
+<li>11 What are the DLP, CDH and DDH problems?</li>
+<li>12 What is the elliptic curve group law?</li>
+<li>13 Outline the use and advantages of projective point representation.</li>
+<li>14 What is a cryptographic pairing?</li>
+</ul>
+<a class="header" href="#a中文数学背景ab" id="a中文数学背景ab"><h3>（中文）数学背景（[A，B]）</h3></a>
+<ul>
+<li>10 RSA和Strong-RSA问题有什么区别？</li>
+<li>11 什么是DLP，CDH和DDH问题？</li>
+<li>12 什么是椭圆曲线群法则？</li>
+<li>13 概述投影点表示的用途和优点。</li>
+<li>14 什么是密码配对？</li>
+</ul>
+<a class="header" href="#basic-practical-or-deployed-cryptographic-schemes-and-protocols-a" id="basic-practical-or-deployed-cryptographic-schemes-and-protocols-a"><h3>Basic (Practical or Deployed) Cryptographic Schemes and Protocols ([A])</h3></a>
+<ul>
+<li>15 Describe the key generation, encryption and decryption algorithms for RSA-OAEP and ECIES.</li>
+<li>16 Describe the key generation, signature and verification algorithms for DSA, Schnorr and RSA-FDH.</li>
+<li>17 Describe and compare the round structure of DES and AES.</li>
+<li>18 Draw a diagram (or describe) the ECB, CBC and CTR modes of operation.</li>
+<li>19 Describe the Shamir secret sharing scheme.</li>
+<li>20 How are Merkle-Damgaard style hash functions constructed?</li>
+</ul>
+<a class="header" href="#a中文基本实用或部署密码方案和协议a" id="a中文基本实用或部署密码方案和协议a"><h3>（中文）基本（实用或部署）密码方案和协议（[A]）</h3></a>
+<ul>
+<li>15 描述RSA-OAEP和ECIES的密钥生成，加密和解密算法。</li>
+<li>16 描述DSA，Schnorr和RSA-FDH的密钥生成，签名和验证算法。</li>
+<li>17 描述和比较DES和AES的圆形结构。</li>
+<li>18 绘制（或描述）ECB，CBC和CTR操作模式的图表。</li>
+<li>19 描述沙米尔秘密分享计划。</li>
+<li>20 Merkle-Damgaard风格的哈希函数是如何构建的？</li>
+</ul>
+<a class="header" href="#cryptographic-implementation-details-a" id="cryptographic-implementation-details-a"><h3>Cryptographic Implementation Details ([A])</h3></a>
+<ul>
+<li>21 How does the CRT method improve performance of RSA?</li>
+<li>22 How do you represent a number and multiply numbers in Montgomery arithmetic?</li>
+<li>23 Write a C program to implement Montgomery arithmetic.</li>
+<li>24 Describe the binary, m-ary and sliding window exponentiation algorithms.</li>
+<li>25 Describe methods for modular reduction using &quot;special&quot; primes that define GF(p) and GF(2^n).</li>
+<li>26 Describe the NAF scalar multiplication algorithm.</li>
+</ul>
+<a class="header" href="#a中文加密实现细节a" id="a中文加密实现细节a"><h3>（中文）加密实现细节（[A]）</h3></a>
+<ul>
+<li>21 CRT方法如何提高RSA的性能？</li>
+<li>22 你如何在蒙哥马利算术中表示数字和乘数？</li>
+<li>23 写一个C程序来实现蒙哥马利算术。</li>
+<li>24 描述二元，m元和滑动窗口指数运算算法。</li>
+<li>25 描述使用定义GF（p）和GF（2 ^ n）的“特殊”素数进行模减量的方法。</li>
+<li>26 描述NAF标量乘法算法。</li>
+</ul>
+<a class="header" href="#security-definitions-and-proofs-abc" id="security-definitions-and-proofs-abc"><h3>Security Definitions and Proofs ([A,B,C])</h3></a>
+<ul>
+<li>27 What is the AEAD security definition for symmetric key encryption?</li>
+<li>28 What is the IND-CCA security definition for public key encryption?</li>
+<li>29 What is the UF-CMA security definition for digital signatures?</li>
+<li>30 Roughly outline the BR security definition for key agreement?</li>
+<li>31 Give one proof of something which involves game hopping</li>
+<li>32 Outline the difference between a game based and a simulation based security definition.</li>
+</ul>
+<a class="header" href="#a中文安全定义和证明abc" id="a中文安全定义和证明abc"><h3>（中文）安全定义和证明（[A，B，C]）</h3></a>
+<ul>
+<li>27 对称密钥加密的AEAD安全定义是什么？</li>
+<li>28 公钥加密的IND-CCA安全定义是什么？</li>
+<li>29 数字签名的UF-CMA安全定义是什么？</li>
+<li>30 粗略概述了密钥协议的BR安全定义？</li>
+<li>31 给出一个涉及游戏跳跃的东西的证明</li>
+<li>32 概述基于游戏和基于模拟的安全定义之间的区别。</li>
+</ul>
+<a class="header" href="#mathematical-attacks-ab" id="mathematical-attacks-ab"><h3>Mathematical Attacks ([A,B])</h3></a>
+<ul>
+<li>33 How does the Bellcore attack work against RSA with CRT?</li>
+<li>34 Describe the Baby-Step/Giant-Step method for breaking DLPs</li>
+<li>35 Give the rough idea of Pollard rho, Pollard &quot;kangaroo&quot; and parallel Pollard rho attacks on ECDLP.</li>
+<li>36 What is meant by index calculus algorithms?</li>
+<li>37 Roughly outline (in two paragraphs only) how the NFS works.</li>
+</ul>
+<a class="header" href="#a中文数学攻击ab" id="a中文数学攻击ab"><h3>（中文）数学攻击（[A，B]）</h3></a>
+<ul>
+<li>33 Bellcore攻击如何利用CRT对抗RSA？</li>
+<li>34 描述打破DLP的Baby-Step / Giant-Step方法</li>
+<li>35 给出Pollard rho，Pollard“袋鼠”和平行Pollard rho攻击ECDLP的粗略想法。</li>
+<li>36 指数演算算法的含义是什么？</li>
+<li>37 粗略地概述（仅在两段中）NFS的工作原理。</li>
+</ul>
+<a class="header" href="#practical-attacks-d" id="practical-attacks-d"><h3>Practical Attacks ([D])</h3></a>
+<ul>
+<li>38 What is the difference between a covert channel and a side-channel?</li>
+<li>39 What is the difference between a side-channel attack and a fault attack?</li>
+<li>40 What is usually considered the difference between DPA and SPA?</li>
+<li>41 Are all side channels related to power analysis?</li>
+<li>42 Look at your C code for Montgomery multiplication above; can you determine where it could leak side channel information?</li>
+<li>43 Describe some basic (maybe ineffective) defences against side channel attacks proposed in the literature for AES.</li>
+<li>44 Describe some basic (maybe ineffective) defences against side channel attacks proposed in the literature for ECC.</li>
+<li>45 Describe some basic (maybe ineffective) defences against side channel attacks proposed in the literature for RSA.</li>
+</ul>
+<a class="header" href="#a中文实际攻击d" id="a中文实际攻击d"><h3>（中文）实际攻击（[D]）</h3></a>
+<ul>
+<li>38 隐蔽频道和旁道之间有什么区别？</li>
+<li>39 旁道攻击和故障攻击有什么区别？</li>
+<li>40 通常认为DPA和SPA之间的区别是什么？</li>
+<li>41 所有旁道都与功率分析有关吗？</li>
+<li>42 看看你的C代码上面的蒙哥马利乘法; 你能确定它可能泄露侧面频道信息的位置吗？</li>
+<li>43 描述针对AES文献中提出的针对边信道攻击的一些基本（可能无效）的防御措施。</li>
+<li>44 描述针对ECC的文献中提出的一些针对旁道攻击的基本（可能无效）防御措施。</li>
+<li>45 描述针对RSA文献中提出的针对边道攻击的一些基本（可能无效）的防御措施。</li>
+</ul>
+<a class="header" href="#advanced-protocols-and-constructions-ab" id="advanced-protocols-and-constructions-ab"><h3>Advanced Protocols and Constructions ([A,B])</h3></a>
+<ul>
+<li>46 What does correctness, soundness and zero-knowledge mean in the context of a Sigma protocol?</li>
+<li>47 What is the Fiat-Shamir transform?</li>
+<li>48 What is the purpose and use of a TPM?</li>
+<li>49 Describe the basic ideas behind IPSec and TLS.</li>
+<li>50 What is the BLS pairing based signature scheme?</li>
+<li>51 What is the security model for ID-based encryption, and describe one IBE scheme.</li>
+<li>52 Pick an advanced application concept such as e-Voting, Auctions or Multi-Party Computation. What are the rough security requirements of such a system?</li>
+</ul>
+<a class="header" href="#a中文先进的协议和结构ab" id="a中文先进的协议和结构ab"><h3>（中文）先进的协议和结构（[A，B]）</h3></a>
+<ul>
+<li>46 在Sigma协议的背景下，正确性，健全性和零知识是什么意思？</li>
+<li>47 什么是菲亚特 - 沙米尔变换？</li>
+<li>48 TPM的目的和用途是什么？</li>
+<li>49 描述IPSec和TLS背后的基本思想。</li>
+<li>50 什么是BLS配对签名方案？</li>
+<li>51 基于ID的加密的安全模型是什么，并描述了一个IBE方案。</li>
+<li>52 选择电子投票，拍卖或多方计算等高级应用程序概念。 这种系统的安全要求是什么？</li>
+</ul>
+<a class="header" href="#further-reading" id="further-reading"><h2>Further Reading</h2></a>
+<ul>
+<li>[A] Nigel's book is deliberately informal and tries to give quick flavours of what is important in theory and practice.</li>
+<li>[B] The Katz Lindell book is a better formal introduction to modern theoretical cryptography but it is less good in its treatment of what is important in the real world (e.g. the coverage of AES, ECC, implementation, etc is quite limited).</li>
+<li>[C] Goldreich's two volume book is a very good introduction to the deep theory, but deliberately does not cover practical cryptography.</li>
+<li>[D] Elisabeth's DPA book is the best introduction to all things about side-channels.</li>
+<li>[E] Dan's book is a good starting place for computer architecture and learning VHDL.</li>
+<li>[F] Goldreich's book on complexity theory is a good place to start. Its approach is much more down-to-earth and sensible than other approaches (i.e. P vs NP is presented in terms of is it easier to check or find proofs?)</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="../cryptography/ristretto.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="../cryptography/things_1.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a href="../cryptography/ristretto.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a href="../cryptography/things_1.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+        <script src="../ace.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../editor.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mode-rust.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../theme-dawn.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../theme-tomorrow_night.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

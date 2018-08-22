@@ -1,0 +1,354 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>以太坊分片技术 - Sun's Home</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+    </head>
+    <body class="light">
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">var path_to_root = "../";</script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { } 
+            if (theme === null || theme === undefined) { theme = 'light'; }
+            document.body.className = theme;
+            document.querySelector('html').className = theme + ' js';
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <ol class="chapter"><li class="affix"><a href="../homepage.html">Happy Hacking</a></li><li><a href="../distributed/index.html"><strong aria-hidden="true">1.</strong> 分布式基础</a></li><li><ol class="section"><li><a href="../distributed/byzantine_generals_problem.html"><strong aria-hidden="true">1.1.</strong> 拜占庭将军问题（BGP）</a></li><li><a href="../distributed/byzantine_agreement.html"><strong aria-hidden="true">1.2.</strong> 拜占庭协定（BA）与拜占庭容错（BFT）</a></li><li><a href="../distributed/binary_byzantine_agreement.html"><strong aria-hidden="true">1.3.</strong> 二元拜占庭协定（BBA）</a></li><li><a href="../distributed/time_state_order.html"><strong aria-hidden="true">1.4.</strong> 时钟，状态与顺序</a></li><li><a href="../distributed/flp.html"><strong aria-hidden="true">1.5.</strong> FLP</a></li><li><a href="../distributed/cap.html"><strong aria-hidden="true">1.6.</strong> CAP</a></li><li><a href="../distributed/crdt.html"><strong aria-hidden="true">1.7.</strong> CRDT</a></li><li><a href="../distributed/merklix-tree.html"><strong aria-hidden="true">1.8.</strong> Merklix-Merkle-Radix Tree</a></li><li><a href="../distributed/distributed_system.html"><strong aria-hidden="true">1.9.</strong> 书: 分布式系统（概念与设计）</a></li></ol></li><li><a href="../consensus/hashgraph.html"><strong aria-hidden="true">2.</strong> 共识算法</a></li><li><ol class="section"><li><a href="../consensus/hashgraph.html"><strong aria-hidden="true">2.1.</strong> Hashgraph-DAG共识算法</a></li><li><a href="../consensus/gossip.html"><strong aria-hidden="true">2.2.</strong> Gossip-消息交互方式</a></li><li><a href="../consensus/spectre.html"><strong aria-hidden="true">2.3.</strong> Spectre-DAG共识算法</a></li><li><a href="../consensus/phantom.html"><strong aria-hidden="true">2.4.</strong> Phantom-DAG共识算法</a></li><li><a href="../consensus/disjoint.html"><strong aria-hidden="true">2.5.</strong> Disjoint-分组算法</a></li><li><a href="../consensus/meshcash.html"><strong aria-hidden="true">2.6.</strong> Meshcash-分层拜占庭协议</a></li><li><a href="../consensus/algorand.html"><strong aria-hidden="true">2.7.</strong> Algorand-分层拜占庭协议</a></li><li><a href="../consensus/dfinity.html"><strong aria-hidden="true">2.8.</strong> Dfinity-密码学共识算法</a></li><li><a href="../consensus/pbft.html"><strong aria-hidden="true">2.9.</strong> PBFT-实用拜占庭协议</a></li><li><a href="../consensus/bft2f.html"><strong aria-hidden="true">2.10.</strong> BFT2F-1/2容错的拜占庭协议</a></li><li><a href="../consensus/binary-multivalued-BA.html"><strong aria-hidden="true">2.11.</strong> B2MBA-二元至多值拜占庭协议</a></li><li><a href="../consensus/eth-sharding.html" class="active"><strong aria-hidden="true">2.12.</strong> 以太坊分片技术</a></li><li><a href="../consensus/zilliqa.html"><strong aria-hidden="true">2.13.</strong> Zilliqa-分片技术</a></li><li><a href="../consensus/bitcoin-ng.html"><strong aria-hidden="true">2.14.</strong> Bitcoin-NG-扩展方案</a></li><li><a href="../consensus/off-chain.html"><strong aria-hidden="true">2.15.</strong> Off-Chain-链下方案</a></li><li><a href="../consensus/mimblewimble.html"><strong aria-hidden="true">2.16.</strong> Mimblewimble-密码学方案</a></li><li><a href="../consensus/plasma.html"><strong aria-hidden="true">2.17.</strong> Plasma-侧链方案</a></li><li><a href="../consensus/conflux.html"><strong aria-hidden="true">2.18.</strong> Conflux-链与DAG组合技术</a></li><li><a href="../consensus/polkadot.html"><strong aria-hidden="true">2.19.</strong> Polkadot-跨链技术</a></li><li><a href="../consensus/parsec.html"><strong aria-hidden="true">2.20.</strong> Parsec-DAG共识算法</a></li><li><a href="../consensus/hal_signature_free.html"><strong aria-hidden="true">2.21.</strong> SFAB-免签名的异步拜占庭共识</a></li><li><a href="../consensus/made_trivial.html"><strong aria-hidden="true">2.22.</strong> Made Trivial-拜占庭协议</a></li><li><a href="../consensus/honey_badger_bft.html"><strong aria-hidden="true">2.23.</strong> Honey Badger BFT-拜占庭协议</a></li><li><a href="../consensus/snowflake_avalanche.html"><strong aria-hidden="true">2.24.</strong> Snowflake Avalanche-共识协议</a></li></ol></li><li><a href="../cryptography/sodium.html"><strong aria-hidden="true">3.</strong> 密码学</a></li><li><ol class="section"><li><a href="../cryptography/sodium.html"><strong aria-hidden="true">3.1.</strong> sodium加密库</a></li><li><a href="../cryptography/25519.html"><strong aria-hidden="true">3.2.</strong> Curve25519/Ed25519/X25519</a></li><li><a href="../cryptography/forward_backward_secrecy.html"><strong aria-hidden="true">3.3.</strong> 前（后）向安全性</a></li><li><a href="../cryptography/threshold_signature.html"><strong aria-hidden="true">3.4.</strong> 门限签名</a></li><li><a href="../cryptography/ring_signature.html"><strong aria-hidden="true">3.5.</strong> 环签名</a></li><li><a href="../cryptography/bulletproofs.html"><strong aria-hidden="true">3.6.</strong> Bulletproofs-非交互零知识证明</a></li><li><a href="../cryptography/schnorr.html"><strong aria-hidden="true">3.7.</strong> Schnorr-系列算法和协议</a></li><li><a href="../cryptography/sigma.html"><strong aria-hidden="true">3.8.</strong> Sigma-系列算法和协议</a></li><li><a href="../cryptography/ristretto.html"><strong aria-hidden="true">3.9.</strong> Ristretto/Decaf-非素数阶曲线实现素数阶群</a></li><li><a href="../cryptography/52_things_cryptography.html"><strong aria-hidden="true">3.10.</strong> 密码学52个知识点</a></li><li><a href="../cryptography/things_1.html"><strong aria-hidden="true">3.11.</strong> 知识点1-处理器区别</a></li><li><a href="../cryptography/things_2.html"><strong aria-hidden="true">3.12.</strong> 知识点2-多核和矢量处理器</a></li><li><a href="../cryptography/things_3.html"><strong aria-hidden="true">3.13.</strong> 知识点3-不同设备的计算和存储</a></li><li><a href="../cryptography/things_4.html"><strong aria-hidden="true">3.14.</strong> 知识点4-复杂度类P</a></li><li><a href="../cryptography/things_5.html"><strong aria-hidden="true">3.15.</strong> 知识点5-复杂度类NP</a></li><li><a href="../cryptography/things_6.html"><strong aria-hidden="true">3.16.</strong> 知识点6-NP:多项式时间内检验证明的定理</a></li><li><a href="../cryptography/things_7.html"><strong aria-hidden="true">3.17.</strong> 知识点7-随机性与BPP</a></li></ol></li><li><a href="../P2P/dht.html"><strong aria-hidden="true">4.</strong> P2P通信</a></li><li><ol class="section"><li><a href="../P2P/dht.html"><strong aria-hidden="true">4.1.</strong> DHT</a></li><li><a href="../P2P/kademlia.html"><strong aria-hidden="true">4.2.</strong> DHT-Kademlia</a></li><li><a href="../P2P/secure_kademlia.html"><strong aria-hidden="true">4.3.</strong> S/Kademlia</a></li></ol></li><li><a href="../db/cache_replacement_policies.html"><strong aria-hidden="true">5.</strong> 存储</a></li><li><ol class="section"><li><a href="../db/cache_replacement_policies.html"><strong aria-hidden="true">5.1.</strong> 缓存置换机制</a></li><li><a href="../db/wal.html"><strong aria-hidden="true">5.2.</strong> WAL-预写式日志</a></li><li><a href="../db/hdd_ssd.html"><strong aria-hidden="true">5.3.</strong> hdd/ssd-硬盘存储设置差别</a></li><li><a href="../db/overlaydb.html"><strong aria-hidden="true">5.4.</strong> Overlay Database</a></li></ol></li><li><a href="../blockchain/blockchain_start.html"><strong aria-hidden="true">6.</strong> 区块链</a></li><li><ol class="section"><li><a href="../blockchain/blockchain_start.html"><strong aria-hidden="true">6.1.</strong> 区块链底层开发指北</a></li><li><a href="../blockchain/blockchain_door.html"><strong aria-hidden="true">6.2.</strong> 区块链世界浏览器脑洞</a></li><li><a href="../blockchain/exchanges.html"><strong aria-hidden="true">6.3.</strong> (去)中心化交易所模块</a></li><li><a href="../blockchain/attack_double_spending.html"><strong aria-hidden="true">6.4.</strong> 攻击-双花(Double-spending)</a></li><li><a href="../blockchain/attack_sybil.html"><strong aria-hidden="true">6.5.</strong> 攻击-女巫(Sybil)</a></li><li><a href="../blockchain/attack_eclipse.html"><strong aria-hidden="true">6.6.</strong> 攻击-日蚀(Eclipse)</a></li><li><a href="../blockchain/attack_targeted.html"><strong aria-hidden="true">6.7.</strong> 攻击-定向(Targeted)</a></li></ol></li><li><a href="../rust/learning.html"><strong aria-hidden="true">7.</strong> Rust</a></li><li><ol class="section"><li><a href="../rust/trait.html"><strong aria-hidden="true">7.1.</strong> Trait</a></li></ol></li><li><a href="../python/pip-mirrors.html"><strong aria-hidden="true">8.</strong> Python</a></li><li><ol class="section"><li><a href="../python/pip-mirrors.html"><strong aria-hidden="true">8.1.</strong> pip 国内镜像的正确使用姿态</a></li><li><a href="../python/selenium_chrome.html"><strong aria-hidden="true">8.2.</strong> selenium + headless Chrome</a></li><li><a href="../python/flask-dir.html"><strong aria-hidden="true">8.3.</strong> Flask 项目结构的分析</a></li></ol></li><li><a href="../emacs/live.html"><strong aria-hidden="true">9.</strong> Emacs</a></li><li><ol class="section"><li><a href="../emacs/emacs_love_python.html"><strong aria-hidden="true">9.1.</strong> 在emacs中开发python</a></li></ol></li><li><a href="../thinking/nowadays-education-of-classic-book-in-china.html"><strong aria-hidden="true">10.</strong> 杂笔</a></li><li><ol class="section"><li><a href="../thinking/nowadays-education-of-classic-book-in-china.html"><strong aria-hidden="true">10.1.</strong> 论中国传统教育现代化</a></li></ol></li></ol>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar" class="menu-bar">
+                    <div id="menu-bar-sticky-container">
+                        <div class="left-buttons">
+                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                                <i class="fa fa-paint-brush"></i>
+                            </button>
+                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light <span class="default">(default)</span></button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            </ul>
+                            
+                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            
+                        </div>
+
+                        <h1 class="menu-title">Sun's Home</h1> 
+
+                        <div class="right-buttons">
+                            <a href="../print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <a class="header" href="#a以太坊的分片技术" id="a以太坊的分片技术"><h3>以太坊的分片技术</h3></a>
+<p><a href="https://github.com/ethereum/wiki/wiki/Sharding-introduction-R&amp;D-compendium">官方资料</a></p>
+<a class="header" href="#a目标" id="a目标"><h5>目标</h5></a>
+<ol>
+<li>Scaling: 可伸缩性，即性能能够达到VISA水平，千级TPS</li>
+<li>可用性：
+<ul>
+<li>跨智能合约交易</li>
+<li>跨片交易</li>
+</ul>
+</li>
+<li>紧耦合</li>
+</ol>
+<a class="header" href="#collation校对数据结构" id="collation校对数据结构"><h5>Collation——校对数据结构</h5></a>
+<p>Collation Header</p>
+<ul>
+<li>shard_id: the Shard ID of shards, most like a network-id, from 0~N-1(N is shard number).</li>
+<li>parent_hash: the hash of parent collation.</li>
+<li>chunk_root: 类似于默克尔树root的一个字段，是对body里面的chunks的root.</li>
+<li>period（周期）: 进行校对的周期. (主链上五个区块算一个周期)</li>
+<li>proposer_bid: 该collation的提案人的地址.</li>
+<li>proposer_signature: 提案人的签名.</li>
+</ul>
+<p>Collation Body</p>
+<ul>
+<li>chunks: list-chunks</li>
+</ul>
+<a class="header" href="#a整体概览" id="a整体概览"><h4>整体概览</h4></a>
+<p>两层和三个步骤：</p>
+<ul>
+<li>第一层
+<ul>
+<li>提案人(Proposer)收集交易放入到Collations中</li>
+<li>校对人(Collator校对
+<ul>
+<li>a: 链接Collations</li>
+<li>b: 同意规范链</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>第二层
+<ul>
+<li>执行人(Executor)
+<ul>
+<li>a: 处理交易</li>
+<li>b: 执行智能合约</li>
+<li>c: 计算状态</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<a class="header" href="#proposer" id="proposer"><h5>Proposer</h5></a>
+<ol>
+<li>任何人都可以成为Proposer</li>
+<li>运行管理一个交易池</li>
+<li>收集所有的交易进行打包</li>
+<li>发送和接收Collation Body</li>
+</ol>
+<a class="header" href="#collator" id="collator"><h5>Collator</h5></a>
+<ol>
+<li>被伪随机抽样为来自所有碎片的整理池的“特定碎片和特定时期”的合格的整理者</li>
+<li>整理提案来构建排序规则</li>
+</ol>
+<a class="header" href="#executor" id="executor"><h5>Executor</h5></a>
+<ol>
+<li>执行状态转换功能</li>
+<li>提议者最好也应该是执行者，这样可以知道交易的消耗的gas，并选择费用高的交易</li>
+</ol>
+<a class="header" href="#sharding-manager-contractsmc" id="sharding-manager-contractsmc"><h4>Sharding Manager Contract（SMC）</h4></a>
+<p><img src="../static/smc_architecture.png" alt="SMC Architecture" /></p>
+<a class="header" href="#a执行流程" id="a执行流程"><h4>执行流程</h4></a>
+<ol>
+<li>验证者通过查看LOOKHEAD, 就是先前的区块链信息去判别接下来的验证者身份</li>
+<li>普通用户提交交易到proposer</li>
+<li>proposer打包出collations并分一些gas去给验证者</li>
+<li>验证者传输接收潜在的collations</li>
+<li>验证验证直到一定的深度的片段</li>
+<li>验证者提交所验证的片段的深度给root chain</li>
+<li>恶意的验证者会提交一个非法的collation</li>
+<li>下一阶段的验证将在此分叉处处理这个非法的collation, 选取前一个合法的collation提交给root chain</li>
+</ol>
+<a class="header" href="#a分片方案与现有架构的整合图" id="a分片方案与现有架构的整合图"><h4>分片方案与现有架构的整合图</h4></a>
+<p><img src="../static/eth_sharding_architecture.png" alt="Eth_Sharding Architecture" /></p>
+<a class="header" href="#sharding-faq" id="sharding-faq"><h3>Sharding FAQ</h3></a>
+<a class="header" href="#a三个简单的实现扩容的方案" id="a三个简单的实现扩容的方案"><h5>三个简单的实现扩容的方案</h5></a>
+<ol>
+<li>不再使用单一的链结构。但是这样会加多N-因子，导致安全性的下降</li>
+<li>提高区块的大小。但是这种方案将导致很多弱连接的节点下线，最终成为集中式的中心化结局</li>
+<li>联合挖矿。所有的矿工一起挖，共享收益，但是这种方式将导致矿工的成本增加，原理上还是和提高区块大小一样</li>
+</ol>
+<a class="header" href="#a扩展性的难题" id="a扩展性的难题"><h5>扩展性的难题</h5></a>
+<ol>
+<li>Decentralization（分散化）。任何设备接入并且只都能提供O(c)的资源</li>
+<li>Scalability（可扩展性）。能够处理O(n) &gt; O(c)的交易</li>
+<li>Security（安全性）。能够抵御O(n)资源的攻击</li>
+</ol>
+<p>c指单节点能够提供的有效资源(计算，带宽，存储)，n指整个生态的规模，交易负载，存储状态大小，数字货币价值都与n成正比。</p>
+<a class="header" href="#what-are-some-moderately-simple-but-only-partial-ways-of-solving-the-scalability-problem--什么是解决可伸缩性问题的一些中等简单但仅部分的方法" id="what-are-some-moderately-simple-but-only-partial-ways-of-solving-the-scalability-problem--什么是解决可伸缩性问题的一些中等简单但仅部分的方法"><h4>What are some moderately simple but only partial ways of solving the scalability problem ? 什么是解决可伸缩性问题的一些中等简单但仅部分的方法？</h4></a>
+<p>早期的分片思想和后来的Zilliqa, Merklix tree都是在使用分片或者碎片技术来解决吞吐量的问题，主要用于解决交易吞吐量的问题，但是没有考虑存储的代价。要全面解决这些问题，还需要解决状态存储，事务执行和广播机制都全面调整。需要深入到P2P层。早期的一个分片方案<a href="https://www.comp.nus.edu.sg/%7Eloiluu/papers/elastico.pdf">ELASTICO</a>。</p>
+<a class="header" href="#a并没有走分片路线的其他方法" id="a并没有走分片路线的其他方法"><h4>并没有走分片路线的其他方法？</h4></a>
+<ol>
+<li>用拜占庭协议去改造区块链共识形态: Bitcoin-NG</li>
+<li>使用外部通道和off-chain加速: Lightning Network，Raiden</li>
+<li>使用密码学来改造： Mimblewimble，zk-SNARKs</li>
+</ol>
+<a class="header" href="#a术语" id="a术语"><h4>术语</h4></a>
+<ul>
+<li>State: 当前的状态，可以判别是否有效。比如Bitcoin中的UTXO，Ethereum中balance+nonce+code+storage，Namecoin中的域名注册表</li>
+<li>History: 自从传世交易以来的所有交易记录</li>
+<li>Transaction: 用户生成的含有签名的一个操作，有时候叫 blobs</li>
+<li>State transaction function: 是一个涉及操作状态的交易</li>
+<li>Merkle tree: 验证只需要 O(log(n))的一种存储数据的树形结构</li>
+<li>Receipt: 代表一个事物效果的对象，并不直接存储在State中，但是存储在Merkle中，用于表示记录的存在，便于以后查询和使用，比如Ethereum中的Logs就是Receipt</li>
+<li>Light client: 存储少量数据，用于Merkle判别的一种客户端实现</li>
+<li>State root: 状态的Merkle树
+<img src="../static/eth-state-root.png" alt="State root" /></li>
+</ul>
+<a class="header" href="#a分片的初始思想" id="a分片的初始思想"><h4>分片的初始思想</h4></a>
+<p>我们将状态和历史分为 K=O(n/c) 分区，我们称之为“碎片”。例如，以太坊的分片方案可能会将所有以0x00开头的地址放入一个分片中，以0x01开头的地址放入另一个分片中。在最简单的分片形式中，每个分片也具有其自己的事务历史记录，某些分片k中的交易仅限于分片k的状态。一个简单的例子是多资产区块链，其中有K个分片，每个分片存储余额并处理与一个特定资产相关联的交易。在更高级的分片中，还包括某种形式的跨分片通信功能，其中一个分片上的事务可以触发其他分片上的事件。</p>
+<a class="header" href="#a分片区块链的基本设计" id="a分片区块链的基本设计"><h4>分片区块链的基本设计</h4></a>
+<p>一个简单的演示例子。为了简单，设计只存储数据点，不执行状态更改操作（UTXO）。存在一些叫做 collators 的节点分布在K分区中，负责接受blobs（transactions），并对这些交易进行打包操作成Collation，包括头，简短消息，上一个Collation和Merkle root。在每一个分区中，这都很想一条完整的区块链。现在的主链就是对这些一个个Collations的排序。一个分区K中的有效区块链，是指在主链上的所有K分区中的区块形成的那条最长链。因此在系统中存在几种节点。</p>
+<ul>
+<li>Super-full node - 下载所有分区和所有Collation, 进行所有验证操作。</li>
+<li>Top-level node - 处理所有主链区块，提供信息给其他的分片组。</li>
+<li>Single-shard node - 处理所有主链区块，并且处理该分区内的所有Collations。</li>
+<li>Light node - 下载主链的区块头。</li>
+</ul>
+<p>Windback Verification——回溯验证。轻客户端通过下载最近的N（N=25）个Collation，来做有效性和可用性验证。</p>
+<a class="header" href="#a面临的挑战有哪些" id="a面临的挑战有哪些"><h4>面临的挑战有哪些？</h4></a>
+<ul>
+<li>Single-shard takeover attacks —— 单分片占领攻击 =&gt; 一般采用随机选举算法抵御</li>
+<li>State transition execution —— 状态交易执行。（具有强同步的状态，保持所有Collator具有准确的状态）</li>
+<li>Fraud detection —— 欺诈识别</li>
+<li>Cross shard communication —— 分片交叉通信</li>
+<li>The data availability problem —— 数据可用性问题</li>
+<li>Superquadratic sharding —— 2次分片</li>
+</ul>
+<a class="header" href="#a安全模型" id="a安全模型"><h4>安全模型？</h4></a>
+<ul>
+<li>Honest majority —— 大部分是诚实的</li>
+<li>Uncoordinated majority —— 大部分是理性的</li>
+<li>Coordinated choice —— 协调选择</li>
+<li>Bribing attacker model —— 贿赂型攻击者模型</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="../consensus/binary-multivalued-BA.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="../consensus/zilliqa.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a href="../consensus/binary-multivalued-BA.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a href="../consensus/zilliqa.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+        <script src="../ace.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../editor.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mode-rust.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../theme-dawn.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../theme-tomorrow_night.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

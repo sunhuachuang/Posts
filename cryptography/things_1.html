@@ -1,0 +1,238 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>知识点1-处理器区别 - Sun's Home</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+    </head>
+    <body class="light">
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">var path_to_root = "../";</script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { } 
+            if (theme === null || theme === undefined) { theme = 'light'; }
+            document.body.className = theme;
+            document.querySelector('html').className = theme + ' js';
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <ol class="chapter"><li class="affix"><a href="../homepage.html">Happy Hacking</a></li><li><a href="../distributed/index.html"><strong aria-hidden="true">1.</strong> 分布式基础</a></li><li><ol class="section"><li><a href="../distributed/byzantine_generals_problem.html"><strong aria-hidden="true">1.1.</strong> 拜占庭将军问题（BGP）</a></li><li><a href="../distributed/byzantine_agreement.html"><strong aria-hidden="true">1.2.</strong> 拜占庭协定（BA）与拜占庭容错（BFT）</a></li><li><a href="../distributed/binary_byzantine_agreement.html"><strong aria-hidden="true">1.3.</strong> 二元拜占庭协定（BBA）</a></li><li><a href="../distributed/time_state_order.html"><strong aria-hidden="true">1.4.</strong> 时钟，状态与顺序</a></li><li><a href="../distributed/flp.html"><strong aria-hidden="true">1.5.</strong> FLP</a></li><li><a href="../distributed/cap.html"><strong aria-hidden="true">1.6.</strong> CAP</a></li><li><a href="../distributed/crdt.html"><strong aria-hidden="true">1.7.</strong> CRDT</a></li><li><a href="../distributed/merklix-tree.html"><strong aria-hidden="true">1.8.</strong> Merklix-Merkle-Radix Tree</a></li><li><a href="../distributed/distributed_system.html"><strong aria-hidden="true">1.9.</strong> 书: 分布式系统（概念与设计）</a></li></ol></li><li><a href="../consensus/hashgraph.html"><strong aria-hidden="true">2.</strong> 共识算法</a></li><li><ol class="section"><li><a href="../consensus/hashgraph.html"><strong aria-hidden="true">2.1.</strong> Hashgraph-DAG共识算法</a></li><li><a href="../consensus/gossip.html"><strong aria-hidden="true">2.2.</strong> Gossip-消息交互方式</a></li><li><a href="../consensus/spectre.html"><strong aria-hidden="true">2.3.</strong> Spectre-DAG共识算法</a></li><li><a href="../consensus/phantom.html"><strong aria-hidden="true">2.4.</strong> Phantom-DAG共识算法</a></li><li><a href="../consensus/disjoint.html"><strong aria-hidden="true">2.5.</strong> Disjoint-分组算法</a></li><li><a href="../consensus/meshcash.html"><strong aria-hidden="true">2.6.</strong> Meshcash-分层拜占庭协议</a></li><li><a href="../consensus/algorand.html"><strong aria-hidden="true">2.7.</strong> Algorand-分层拜占庭协议</a></li><li><a href="../consensus/dfinity.html"><strong aria-hidden="true">2.8.</strong> Dfinity-密码学共识算法</a></li><li><a href="../consensus/pbft.html"><strong aria-hidden="true">2.9.</strong> PBFT-实用拜占庭协议</a></li><li><a href="../consensus/bft2f.html"><strong aria-hidden="true">2.10.</strong> BFT2F-1/2容错的拜占庭协议</a></li><li><a href="../consensus/binary-multivalued-BA.html"><strong aria-hidden="true">2.11.</strong> B2MBA-二元至多值拜占庭协议</a></li><li><a href="../consensus/eth-sharding.html"><strong aria-hidden="true">2.12.</strong> 以太坊分片技术</a></li><li><a href="../consensus/zilliqa.html"><strong aria-hidden="true">2.13.</strong> Zilliqa-分片技术</a></li><li><a href="../consensus/bitcoin-ng.html"><strong aria-hidden="true">2.14.</strong> Bitcoin-NG-扩展方案</a></li><li><a href="../consensus/off-chain.html"><strong aria-hidden="true">2.15.</strong> Off-Chain-链下方案</a></li><li><a href="../consensus/mimblewimble.html"><strong aria-hidden="true">2.16.</strong> Mimblewimble-密码学方案</a></li><li><a href="../consensus/plasma.html"><strong aria-hidden="true">2.17.</strong> Plasma-侧链方案</a></li><li><a href="../consensus/conflux.html"><strong aria-hidden="true">2.18.</strong> Conflux-链与DAG组合技术</a></li><li><a href="../consensus/polkadot.html"><strong aria-hidden="true">2.19.</strong> Polkadot-跨链技术</a></li><li><a href="../consensus/parsec.html"><strong aria-hidden="true">2.20.</strong> Parsec-DAG共识算法</a></li><li><a href="../consensus/hal_signature_free.html"><strong aria-hidden="true">2.21.</strong> SFAB-免签名的异步拜占庭共识</a></li><li><a href="../consensus/made_trivial.html"><strong aria-hidden="true">2.22.</strong> Made Trivial-拜占庭协议</a></li><li><a href="../consensus/honey_badger_bft.html"><strong aria-hidden="true">2.23.</strong> Honey Badger BFT-拜占庭协议</a></li><li><a href="../consensus/snowflake_avalanche.html"><strong aria-hidden="true">2.24.</strong> Snowflake Avalanche-共识协议</a></li></ol></li><li><a href="../cryptography/sodium.html"><strong aria-hidden="true">3.</strong> 密码学</a></li><li><ol class="section"><li><a href="../cryptography/sodium.html"><strong aria-hidden="true">3.1.</strong> sodium加密库</a></li><li><a href="../cryptography/25519.html"><strong aria-hidden="true">3.2.</strong> Curve25519/Ed25519/X25519</a></li><li><a href="../cryptography/forward_backward_secrecy.html"><strong aria-hidden="true">3.3.</strong> 前（后）向安全性</a></li><li><a href="../cryptography/threshold_signature.html"><strong aria-hidden="true">3.4.</strong> 门限签名</a></li><li><a href="../cryptography/ring_signature.html"><strong aria-hidden="true">3.5.</strong> 环签名</a></li><li><a href="../cryptography/bulletproofs.html"><strong aria-hidden="true">3.6.</strong> Bulletproofs-非交互零知识证明</a></li><li><a href="../cryptography/schnorr.html"><strong aria-hidden="true">3.7.</strong> Schnorr-系列算法和协议</a></li><li><a href="../cryptography/sigma.html"><strong aria-hidden="true">3.8.</strong> Sigma-系列算法和协议</a></li><li><a href="../cryptography/ristretto.html"><strong aria-hidden="true">3.9.</strong> Ristretto/Decaf-非素数阶曲线实现素数阶群</a></li><li><a href="../cryptography/52_things_cryptography.html"><strong aria-hidden="true">3.10.</strong> 密码学52个知识点</a></li><li><a href="../cryptography/things_1.html" class="active"><strong aria-hidden="true">3.11.</strong> 知识点1-处理器区别</a></li><li><a href="../cryptography/things_2.html"><strong aria-hidden="true">3.12.</strong> 知识点2-多核和矢量处理器</a></li><li><a href="../cryptography/things_3.html"><strong aria-hidden="true">3.13.</strong> 知识点3-不同设备的计算和存储</a></li><li><a href="../cryptography/things_4.html"><strong aria-hidden="true">3.14.</strong> 知识点4-复杂度类P</a></li><li><a href="../cryptography/things_5.html"><strong aria-hidden="true">3.15.</strong> 知识点5-复杂度类NP</a></li><li><a href="../cryptography/things_6.html"><strong aria-hidden="true">3.16.</strong> 知识点6-NP:多项式时间内检验证明的定理</a></li><li><a href="../cryptography/things_7.html"><strong aria-hidden="true">3.17.</strong> 知识点7-随机性与BPP</a></li></ol></li><li><a href="../P2P/dht.html"><strong aria-hidden="true">4.</strong> P2P通信</a></li><li><ol class="section"><li><a href="../P2P/dht.html"><strong aria-hidden="true">4.1.</strong> DHT</a></li><li><a href="../P2P/kademlia.html"><strong aria-hidden="true">4.2.</strong> DHT-Kademlia</a></li><li><a href="../P2P/secure_kademlia.html"><strong aria-hidden="true">4.3.</strong> S/Kademlia</a></li></ol></li><li><a href="../db/cache_replacement_policies.html"><strong aria-hidden="true">5.</strong> 存储</a></li><li><ol class="section"><li><a href="../db/cache_replacement_policies.html"><strong aria-hidden="true">5.1.</strong> 缓存置换机制</a></li><li><a href="../db/wal.html"><strong aria-hidden="true">5.2.</strong> WAL-预写式日志</a></li><li><a href="../db/hdd_ssd.html"><strong aria-hidden="true">5.3.</strong> hdd/ssd-硬盘存储设置差别</a></li><li><a href="../db/overlaydb.html"><strong aria-hidden="true">5.4.</strong> Overlay Database</a></li></ol></li><li><a href="../blockchain/blockchain_start.html"><strong aria-hidden="true">6.</strong> 区块链</a></li><li><ol class="section"><li><a href="../blockchain/blockchain_start.html"><strong aria-hidden="true">6.1.</strong> 区块链底层开发指北</a></li><li><a href="../blockchain/blockchain_door.html"><strong aria-hidden="true">6.2.</strong> 区块链世界浏览器脑洞</a></li><li><a href="../blockchain/exchanges.html"><strong aria-hidden="true">6.3.</strong> (去)中心化交易所模块</a></li><li><a href="../blockchain/attack_double_spending.html"><strong aria-hidden="true">6.4.</strong> 攻击-双花(Double-spending)</a></li><li><a href="../blockchain/attack_sybil.html"><strong aria-hidden="true">6.5.</strong> 攻击-女巫(Sybil)</a></li><li><a href="../blockchain/attack_eclipse.html"><strong aria-hidden="true">6.6.</strong> 攻击-日蚀(Eclipse)</a></li><li><a href="../blockchain/attack_targeted.html"><strong aria-hidden="true">6.7.</strong> 攻击-定向(Targeted)</a></li></ol></li><li><a href="../rust/learning.html"><strong aria-hidden="true">7.</strong> Rust</a></li><li><ol class="section"><li><a href="../rust/trait.html"><strong aria-hidden="true">7.1.</strong> Trait</a></li></ol></li><li><a href="../python/pip-mirrors.html"><strong aria-hidden="true">8.</strong> Python</a></li><li><ol class="section"><li><a href="../python/pip-mirrors.html"><strong aria-hidden="true">8.1.</strong> pip 国内镜像的正确使用姿态</a></li><li><a href="../python/selenium_chrome.html"><strong aria-hidden="true">8.2.</strong> selenium + headless Chrome</a></li><li><a href="../python/flask-dir.html"><strong aria-hidden="true">8.3.</strong> Flask 项目结构的分析</a></li></ol></li><li><a href="../emacs/live.html"><strong aria-hidden="true">9.</strong> Emacs</a></li><li><ol class="section"><li><a href="../emacs/emacs_love_python.html"><strong aria-hidden="true">9.1.</strong> 在emacs中开发python</a></li></ol></li><li><a href="../thinking/nowadays-education-of-classic-book-in-china.html"><strong aria-hidden="true">10.</strong> 杂笔</a></li><li><ol class="section"><li><a href="../thinking/nowadays-education-of-classic-book-in-china.html"><strong aria-hidden="true">10.1.</strong> 论中国传统教育现代化</a></li></ol></li></ol>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar" class="menu-bar">
+                    <div id="menu-bar-sticky-container">
+                        <div class="left-buttons">
+                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                                <i class="fa fa-paint-brush"></i>
+                            </button>
+                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light <span class="default">(default)</span></button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            </ul>
+                            
+                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            
+                        </div>
+
+                        <h1 class="menu-title">Sun's Home</h1> 
+
+                        <div class="right-buttons">
+                            <a href="../print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <a class="header" href="#a-hrefhttpsbristolcryptoblogspotcom20141052-things-number-1-different-types-ofhtml处理器的区别a" id="a-hrefhttpsbristolcryptoblogspotcom20141052-things-number-1-different-types-ofhtml处理器的区别a"><h3><a href="https://bristolcrypto.blogspot.com/2014/10/52-things-number-1-different-types-of.html">处理器的区别</a></h3></a>
+<pre><code>1. What is the difference between the following?
+    - general-purpose processor.
+    - general-purpose processor with instruction-set extensions.
+    - special-purpose processor (or co-processor).
+    - An FPGA.
+
+1. 以下几点有什么区别？
+   - 通用处理器。
+   - 带指令集扩展的通用处理器。
+   - 专用处理器（或协处理器）。
+   - 一个FPGA。
+</code></pre>
+<p>There is no strict definition of a general-purpose processor, however, it is widely accepted that a processor is general if it is Turing-complete. This captures any processor that is able to compute anything actually computable (i.e. can solve any problem a Turing machine can). I will not delve into the definition of a Turing machine but if I've already lost you then I would recommend brushing up on your Theory of Computation [1]. Note though that this definition has no concept of performance or instruction-set capabilities and, in fact, some researchers have gone through the trouble of proving that you may only need a single instruction to be Turing-complete [2]. In the context of modern processors, most programmable CPUs are considered general purpose.</p>
+<p>对通用处理器没有严格的定义，但是，如果处理器是图灵完备的，则该处理器是普遍通用的。这捕获了能够计算任何实际可计算的任何处理器（即，可以解决图灵机可能遇到的任何问题）。 我不会深入研究图灵机的定义，但是如果你完全理解不了我说的东西的化，那么我会建议你刷一下你的计算理论[1]。 请注意，虽然这个定义没有任何性能或指令集功能的概念，事实上，一些研究人员经历了证明您可能只需要一条指令即可完成图灵完成的麻烦[2]。 在现代处理器的情况下，大多数可编程CPU被认为是通用的。</p>
+<p>The cost of being general-purpose usually comes at a penalty in performance. Specifically, a general-purpose processor may be able to compute anything computable but, it will never excel at complex repeated tasks. Given a task that is repeated regularly on a general-purpose processor in a wide variety of applications, a processor designer may incorporate instruction-set extensions to the base micro-architecture to accommodate the task. Functionally, there may be no difference in the micro-architecture capabilities but practically there may be huge performance gains for the end-user.</p>
+<p>通用性的成本通常会导致性能上的损失。具体来说，通用处理器可能能够计算任何可计算的值，但是，在复杂的重复任务中，它永远不会出类拔萃。 鉴于在各种应用中的通用处理器上定期重复的任务，处理器设计人员可将指令集扩展集成到基本微架构以适应任务。 在功能上，微架构能力可能没有区别，但实际上最终用户可能会获得巨大的性能收益。</p>
+<p>As we're all cryptographers here, I will stick to a crypto example for instruction-set extensions. Consider a desktop machine with an AES encrypted disk. Any reads from secondary storage require a CPU interrupt to decrypt the data blocks before being cached. Given disk access from a cache miss is already considered terrible, add the decryption routine over the top and you have a bottleneck worth making you re-consider your disk encryption. It should be clear here that AES is our complex repeated task and given a general-purpose CPU with a simple instruction-set, we have no choice but to implement the decryption as a linear stream operations. Intel and AMD both recognised the demand for disk encryption and the penalty AES adds to secondary storage access and have (since circa 2010) produced the AES-NI x86 instruction-set extension to accelerate disk encryption on the their line of desktop CPUs.</p>
+<p>由于我们都是密码技术人员，因此我将坚持使用指令集扩展的加密示例。考虑使用AES加密磁盘的台式机。从辅助存储的任何读取都需要CPU中断才能在缓存之前解密数据块。 考虑到从高速缓存未命中的磁盘访问已被认为是可怕的，请在顶部添加解密例程，并且存在一个值得您重新考虑磁盘加密的瓶颈。 这里应该清楚的是，AES是我们复杂的重复任务，并且通过一个具有简单指令集的通用CPU，我们别无选择，只能将解密作为线性流操作来实现。 英特尔和AMD都认识到磁盘加密的需求以及AES增加二级存储访问的损失，并且（自2010年以来）已经制定了AES-NI x86指令集扩展，以加速其台式机CPU系列上的磁盘加密。</p>
+<p>If you want to fully accelerate any computation, the most optimal result will always be a special-purpose processor or an Application-specific integrated circuit (ASIC). Here we lose a significant portion of the flexibility granted by a general-purpose processor in exchange for performance gains. These types of processors are often tightly-coupled to a general-purpose processor, hence the term co-processor. Note, a co-processor may indeed be in the same package as a general-purpose processor but not necessarily integrated into the general-purpose architecture. Once again, if we turn to modern processor architectures, Intel and AMD have both integrated sound cards, graphics processors and DSP engines into their CPUs for some time now. The additional functionality is exposed via special-purpose registers and the co-processor treated as a separate component which the general-purpose processor must manage.</p>
+<p>如果您想全面加速任何计算，最佳结果将始终是专用处理器或专用集成电路（ASIC）。 在这里，我们失去了通用处理器授予的灵活性的重要部分，以换取性能提升。 这些类型的处理器通常与通用处理器紧密耦合，因此称为协处理器。 请注意，协处理器可能确实与通用处理器在同一个封装中，但未必集成到通用架构中。 再一次，如果我们转向现代处理器架构，英特尔和AMD现在已经将声卡，图形处理器和DSP引擎集成到了他们的CPU中。 附加功能通过专用寄存器公开，协处理器视为通用处理器必须管理的独立组件。</p>
+<p>Finally we turn to Field-Programmable Gate Arrays (FPGAs). The middle-ground between ASIC and general-purpose processors. If an application demands high-performance throughput but also requires (infrequent) modification then an FPGA is probably the answer. To understand how an FPGA works, consider a (very) large electronics breadboard with thousands of logic-gates and lookup tables (multiplexers attached to memory) placed all around the breadboard. If you describe an application as a set of gates and timing constraints then you can wire it together on the breadboard and produce a circuit that will evaluate your application. An FPGA affords the flexibility of being re-programmable whilst producing the dedicated logic to evaluate a target application. The key difference to a general-purpose program is how you design and build your application. In order to get the most out of the hardware you must describe the application as a set of hardware components and events using a hardware description language (Verilog or VHDL). This process is frequently used to prototype general-purpose and special-purpose processors on FPGAs before production. However, it is not without its drawbacks. Designing a program with low-level building blocks becomes very cumbersome for large applications. In addition, the energy consumption and hardware costs are generally higher in comparison to a general-purpose embedded IC. Recently, FPGA manufacturer Xilinx have begun shipping FPGAs with ARM general-purpose cores integrated within a single package [3]. This now makes FPGAs available to the ARM core as a flexible co-processor. As a result, you can build dedicated logic to evaluate your crypto primitives and hence accelerate cryptographic applications.</p>
+<p>最后我们转向现场可编程门阵列（FPGA）。 ASIC和通用处理器之间的中间地带。如果一个应用需要高性能的吞吐量，但也需要（不频繁的）修改，那么FPGA可能就是答案。为了理解FPGA的工作原理，考虑一个（非常）大型的电子面包板，在面包板上放置数千个逻辑门和查找表（内存中的多路复用器）。如果您将应用程序描述为一组门和时序约束条件，那么您可以将它连接在面包板上，并生成一个评估应用程序的电路。 FPGA提供了重新编程的灵活性，同时生成用于评估目标应用的专用逻辑。与通用程序的主要区别在于您如何设计和构建您的应用程序。为了充分利用硬件，您必须使用硬件描述语言（Verilog或VHDL）将应用程序描述为一组硬件组件和事件。在生产之前，这个过程经常用于在FPGA上对通用和专用处理器进行原型设计。然而，这并非没有缺点。使用低级构建块设计程序对于大型应用程序来说非常麻烦。另外，与通用嵌入式IC相比，能耗和硬件成本通常较高。最近，FPGA制造商赛灵思公司已经开始提供集成在单个封装内的ARM通用内核的FPGA [3]。现在，这使得FPGA可以作为灵活的协处理器使用FPGA。因此，您可以构建专用逻辑来评估您的加密原语，从而加速加密应用程序。</p>
+<p>In summary, general-purpose processors are capable of computing anything computable. Similarly for a general-purpose processor with instruction-set extensions and it may perform better in particular applications. A special-purpose (or co-processor) is very fast at a particular task but is unable to compute anything outside of that. An FPGA can be used to build all of the above hardware but sacrifices speed for flexibility over an ASIC solution.</p>
+<p>总之，通用处理器能够计算任何可计算的内容。 类似地，对于具有指令集扩展的通用处理器，它在特定应用中可能表现更好。 特殊用途（或协处理器）在特定任务中速度非常快，但无法计算任何其他内容。 FPGA可用于构建所有上述硬件，但牺牲ASIC解决方案的灵活性。</p>
+<ul>
+<li>[1] http://www.amazon.co.uk/Introduction-Theory-Computation-Michael-Sipser/dp/0619217642</li>
+<li>[2] http://www.cl.cam.ac.uk/~sd601/papers/mov.pdf</li>
+<li>[3] http://www.xilinx.com/products/zynq-7000/extensible-virtual-platform.htm</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="../cryptography/52_things_cryptography.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="../cryptography/things_2.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a href="../cryptography/52_things_cryptography.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a href="../cryptography/things_2.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+        <script src="../ace.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../editor.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mode-rust.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../theme-dawn.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../theme-tomorrow_night.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

@@ -61,6 +61,7 @@
   - [DHT](./P2P/dht.md)
   - [DHT-Kademlia](./P2P/kademlia.md)
   - [S/Kademlia](./P2P/secure_kademlia.md)
+  - [NAT](./P2P/nat.md)
 - [存储](./db/cache_replacement_policies.md)
   - [缓存置换机制](./db/cache_replacement_policies.md)
   - [WAL-预写式日志](./db/wal.md)
